@@ -53,9 +53,9 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                             </div>
                         <? else :?>
                             <div class="events__img">
-                                <div class="js-imager" data-src="/assets/img/regions/events/small-ph.png" data-alt="<?= $event->name;?>"></div>
+                                <div class="js-imager" data-class="fit" data-src="/assets/img/regions/events/small-ph.png" data-alt="<?= $event->name;?>"></div>
                                 <noscript>
-                                    <img src="/assets/img/regions/events/small-ph.png" alt="<?= $event->name;?>" height="185" width="265">                                
+                                    <img src="/assets/img/regions/events/small-ph.png" class="fit" alt="<?= $event->name;?>" height="185" width="265">                                
                                 </noscript>                               
                             </div>
                         <? endif;?>
