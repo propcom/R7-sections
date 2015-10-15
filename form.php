@@ -135,8 +135,10 @@ if ($fh->showSuccessText && $confirmation) {
 
 ?>
 
-<div class="generic-form" id="<?= \Arr::get($config, 'name', 'generic');?>">
+<div class="generic-form">
 
+    <a href="javscript:void(0);" class="anchor" id="<?= \Arr::get($config, 'name', 'generic');?>"></a>
+   
     <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
 
         <h3><?= \Arr::get($config, 'title', 'Generic form plz rename');?></h3>            
