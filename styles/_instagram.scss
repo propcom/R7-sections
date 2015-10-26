@@ -1,0 +1,191 @@
+.instagram {
+    
+    width: 100%;
+    background: $tertiaryColor;
+    
+    &__block {
+        
+        @include width(5, 0%);
+        float: left;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        visibility: hidden;
+        
+        
+        &.zRS--slide {
+            
+            visibility: visible;
+            
+        }
+        
+        img {
+            
+            transition: opacity 0.25s;            
+            opacity: 1;
+            
+        }
+        
+        img[zRS-src] {
+            
+            opacity: 0;
+            
+        }
+        
+        &:first-child {
+            
+            position: relative;
+            
+        }
+    }
+    
+    &__link {
+        
+        width: 50%;
+        display: block;
+        float: left;
+        background: $secondaryColor;
+        position: relative;
+        padding: 15px;
+        
+        &--content {
+            
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            border: 4px solid $primaryColor;
+            text-align: center;
+            
+            padding: 20px;
+            
+            @include font-size(24);
+            color: $primaryFontColor;
+            font-style: italic;
+            
+            &:before {
+                
+                content: 'i';
+                font-family: $fonticon;
+                font-style: normal;
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 10px;
+                @include font-size(24);
+                color: $primaryFontColor;
+                
+                .lt-ie9 & {
+                    
+                    position: relative;
+                    left: 42%;
+                    
+                }
+                
+            }
+            
+            span {
+                
+                @include mq(1600px) {
+                    
+                    display: none;
+                    
+                }
+                
+                @include mq($mq-tab--lrg) {
+                    
+                    display: inline;
+                    
+                }
+                
+                @include mq(620px) {
+                    
+                    display: none;
+                    
+                }
+                
+            }
+            
+        }
+        
+        &:after {
+            
+            content: '';
+            display: block;
+            padding-top: 100%;
+            
+        }
+        
+    }
+    
+    &__button {
+        
+        display: inline-block;
+        background: $primaryColor;
+        color: $secondaryFontColor;
+        font-family: "brandon-grotesque", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        width: 75%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: 15px;
+        font-weight: bold;
+        margin: 0 auto;
+        line-height: 50px;
+        
+        &:hover {
+            
+            background: $secondaryFontColor;
+            color: $primaryColor;
+            
+        }
+        
+    }
+    
+    &__slider {
+        
+        overflow: hidden;
+        width: 100%;
+        
+    }
+    
+    &__large {
+        
+        img {
+            
+            width: 100%;
+            height: auto;
+            
+        }
+        
+    }
+    
+    &__small {
+        
+        img {
+            
+            width: 100%;
+            height: auto;
+            
+        }
+        
+        a {
+            
+            float: left;
+            width: 50%;
+            
+            &:nth-child(3n+0) {
+                
+                clear: both;
+                
+            }
+            
+        }
+        
+    }
+    
+}

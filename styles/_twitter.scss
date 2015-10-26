@@ -1,0 +1,111 @@
+.twitter {
+    
+    padding: 40px 0;
+    width: 100%;
+    
+    background: $primaryColor;
+    color: $secondaryFontColor;
+    
+    a {
+        
+        color: $secondaryFontColor;
+        text-decoration: underline;
+        
+    }
+    
+    &__slider {
+        
+        padding: 0 97px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        
+        .inner-slider {
+            
+            min-height: 115px;
+            
+            @include mq($mq-mob--lrg) {
+             
+                min-height: 150px;
+                
+            }
+            
+        }
+        
+        @include mq($mq-mob--lrg) {
+            
+            padding: 0;
+            
+        }
+        
+    }
+    
+    &__slide {
+        
+        float: left;
+        @include width(2, 17%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        &:first-child {
+            
+            position: relative;
+            
+        }
+        
+        visibility: hidden;
+        
+        &.zRS--slide {
+            
+            visibility: visible;
+            
+        }
+        
+        &:before {
+            
+            font-family: $fonticon;
+            content: 't';
+            display: inline-block;
+            @include font-size(20);
+            margin-bottom: 20px;
+            
+        }
+        
+    }
+    
+    &__nav {
+        
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 0px;
+        
+        font-family: $fonticon;
+        color: $secondaryFontColor;
+        text-decoration: none!important;
+        
+        @include font-size($hecto-size);
+        
+        &[data-direction="next"] {
+            
+            right: 0px;
+            left: auto;
+            
+        }
+        
+        &:hover {
+            
+            text-decoration: none;
+            
+        }
+        
+        @include mq($mq-mob--lrg) {
+            
+            display: none;
+            
+        }
+        
+    }
+    
+}

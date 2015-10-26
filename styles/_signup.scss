@@ -1,0 +1,137 @@
+.signup {
+    
+    width: 100%;
+    color: $secondaryFontColor;
+    
+    &__background {
+        
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 0 80px 0;
+        
+        background: url(../img/regions/signup/signup-bg.jpg) no-repeat center;
+        
+        background-size: cover;
+        
+    }
+    
+    &__terms {
+        
+        display: none;
+        position: absolute;
+        width: 95%;
+        overflow: hidden;
+        padding: 30px;
+        max-width: 500px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        border: 4px solid $primaryColor;
+        
+        background: $secondaryColor;
+        
+        p {
+            
+            margin-bottom: 20px;
+            
+        }
+        
+        &.active {
+            
+            display: block;
+            z-index: 102;
+            
+        }
+        
+        @include mq($mq-mob--lrg) {
+            
+            padding: 15px;
+            
+        }
+        
+    }
+    
+    &__wrapper {
+        
+        border: 4px solid $secondaryFontColor;
+        padding: 30px 35px;
+        
+        @include mq($mq-mob--lrg) {
+            
+            padding: 30px 20px;
+            
+        }
+        
+    }
+    
+    h3 {
+        
+        margin-bottom: 35px;
+        
+    }
+    
+    h4 {
+        
+        margin-bottom: 5px;
+        
+    }
+    
+    p {
+        
+        @include font-size($delta-size);
+        margin-bottom: 30px;
+        
+        
+        &.terms {
+
+            @include font-size(12);
+            margin-bottom: 0;
+            float: left;
+            font-family: $secondaryFont;
+            width: 100%;
+            padding-top: 10px;
+            
+            a {
+                
+                color: $secondaryFontColor;
+                
+                &:hover {
+                    
+                    color: $tertiaryFontColor;
+                    
+                }
+                
+            }
+
+        }
+        
+    }
+    
+    .field-wrap {
+        
+        @include width(3, 2%);
+        float: left;
+        
+        @include mq($mq-mob--lrg) {
+            
+            @include width(1, 0%);
+            margin-bottom: 20px;
+            
+        }
+        
+    }
+    
+    .select-wrap {
+        
+        width: 37.5%;
+    }
+    
+    input[type="submit"] {
+        
+        position: relative;
+        bottom: -60px;
+        
+    }
+    
+}

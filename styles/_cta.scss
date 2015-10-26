@@ -1,0 +1,89 @@
+.cta {
+    
+    padding: 40px 0;
+    
+    @include mq($mq-tab) {
+
+        padding: 40px 0 0 0;
+
+    }
+    
+    &__region {
+        
+        @include width(3, 5%);
+        float: left;
+        border: 3px solid $primaryColor;
+        padding: 30px 70px 120px 70px;
+        position: relative;
+        min-height: 450px;
+        
+        img {
+            
+            margin-bottom: 20px;
+            
+        }
+        
+        @include mq(1180px) {
+         
+            padding: 30px 30px 120px 30px;
+            
+        }
+        
+        @include mq($mq-tab) {
+         
+            @include width(2, 5%);
+            
+            margin-bottom: 40px;
+            
+            &:nth-child(3n+0) {
+                
+                margin-left: 26.25%;
+                margin-right: 0;
+                
+            }
+            
+        }
+        
+        @include mq($mq-mob--lrg) {
+            
+            @include width(1, 0%);
+            
+            &:nth-child(3n+0) {
+                
+                margin-left: 0;
+                
+            }
+            
+        }
+        
+    }
+    
+    &__button {
+        
+        display: inline-block;
+        background: $primaryColor;
+        color: $secondaryFontColor;
+        
+        font-family: $secondaryFont;
+        text-transform: uppercase;
+        width: 50%;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        font-weight: bold;
+        margin: 0 auto;
+        
+        line-height: 50px;
+        
+        &:hover {
+            
+            color: $primaryColor;
+            background: $secondaryFontColor;
+            text-decoration: none;
+            
+        }
+        
+    }
+    
+}

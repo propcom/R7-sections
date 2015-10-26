@@ -1,0 +1,21 @@
+.map {
+    
+    overflow: hidden;
+    
+    &__map {
+        
+        width: 100%;
+        min-height: 300px;
+        max-height: 700px;
+
+        &:after {
+
+            content: '';
+            display: block;
+            padding-top: 50%;
+
+        }
+        
+    }
+    
+}
