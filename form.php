@@ -141,7 +141,9 @@ if ($fh->showSuccessText && $confirmation) {
    
     <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
 
-        <h3><?= \Arr::get($config, 'title', 'Generic form plz rename');?></h3>            
+        <h3><?= \Arr::get($config, 'title', 'Generic form plz rename');?></h3>
+        
+        <p><?= \Arr::get($config, 'subtitle');?></p>        
 
         <div id="<?= $multiFormName; ?>-wrapper" class="generic-form__wrapper">
 
