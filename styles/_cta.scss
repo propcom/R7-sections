@@ -1,11 +1,25 @@
 .cta {
     
     padding: 40px 0;
+    display: block;
     
     @include mq($mq-tab) {
 
         padding: 40px 0 0 0;
 
+    }
+    
+    .centre-wrap {
+        
+        display: block;
+        display: flex;
+        
+        @include mq($mq-tab){
+            
+            display: block;
+            
+        }
+        
     }
     
     &__region {
@@ -15,7 +29,8 @@
         border: 3px solid $primaryColor;
         padding: 30px 70px 120px 70px;
         position: relative;
-        min-height: 450px;
+        
+        display: block;
         
         img {
             
@@ -42,6 +57,8 @@
                 
             }
             
+            min-height: 500px;
+            
         }
         
         @include mq($mq-mob--lrg) {
@@ -53,6 +70,12 @@
                 margin-left: 0;
                 
             }
+            
+        }
+        
+        .lt-ie10 & {
+            
+            min-height: 500px;
             
         }
         
