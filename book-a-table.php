@@ -2,7 +2,7 @@
 
     <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
     
-        <div class="generic-form__wrapper">
+        <div class="book__wrapper">
             
             <a href="javscript:void(0);" class="anchor" id="booking"></a>
             
