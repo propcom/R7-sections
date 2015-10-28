@@ -1,0 +1,41 @@
+.book {
+    
+    width: 100%;
+    color: $secondaryFontColor;
+    background: $primaryColor;
+    padding: 40px 0 40px 0;
+    position: relative;
+    
+    .anchor {
+        
+        position: absolute;
+        top: -60px;
+        
+    }
+    
+    h3 {
+        
+        margin-bottom: 15px;
+        
+    }
+    
+    .subtitle {
+        
+        margin-bottom: 20px;
+        
+    }
+    
+    h4 {
+        
+        margin-bottom: 5px;
+        
+    }
+    
+    p {
+        
+        @include font-size($delta-size);
+        margin-bottom: 30px;
+        
+    }
+    
+}
