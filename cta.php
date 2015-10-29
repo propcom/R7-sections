@@ -14,8 +14,12 @@
                     <h5><?= \Arr::get($region, 'title', 'Default');?></h5>
                     <p><?= \Str::truncate(\Arr::get($region, 'content', 'Default content, please add your own.'), 200, '...');?></p>
 
-                    <a href="<?= $region['button']['link'];?>" class="cta__button" title="<?= $region['button']['text'];?>"><?= $region['button']['text'];?></a>                
+                    <? if(isset($region['button'])) :?>
+                   
+                    <a href="<?= $region['button']['link'];?>" class="cta__button" title="<?= $region['button']['text'];?>"><?= $region['button']['text'];?></a>
 
+                    <? endif;?>
+               
                 </div>           
                 <? $i++;?>
             <? endforeach;?>
