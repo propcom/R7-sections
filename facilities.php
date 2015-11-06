@@ -54,9 +54,12 @@
                                 <? endforeach;?>
                             </div>
                             <? endif;?>
+                            
+                            <? if(isset($config['button'])) :?>
                             <div class="facilities__buttons">
                                 <a class="button__button" href="<?= \Arr::get($config, 'button', '#enquire');?>">Hire Enquiry</a>
                             </div>
+                            <? endif;?>
                         </div>
                     </div>
 

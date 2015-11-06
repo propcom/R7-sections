@@ -1,3 +1,16 @@
+.block {
+    
+    float: left;
+    
+    &--half {
+        
+        @include width(2, 0%);
+        margin-bottom: 20px;
+        
+    }
+    
+}
+
 .facilities {
     
     padding: 40px 0;
