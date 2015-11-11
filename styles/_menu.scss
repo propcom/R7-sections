@@ -13,6 +13,7 @@
         @include width(3, 2%);
         line-height: initial;
         padding: 15px;
+        margin-bottom: 2%;
         
         @include mq($mq-tab) { 
         
