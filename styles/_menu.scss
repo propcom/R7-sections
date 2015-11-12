@@ -2,6 +2,12 @@
     
     padding: 40px 0px;
     
+    .geronimo & {
+        
+        padding: 0px 0px 40px 0;
+        
+    }
+    
     .button__button {
                 
         &.float {
@@ -35,6 +41,88 @@
             
         }
         
+        .geronimo & {
+            
+            border: 2px solid $secondaryColor;
+            background: $primaryColor;
+            color: $secondaryColor;            
+            position: relative;
+            
+            &:hover {
+                
+                background: $secondaryColor;
+                color: $primaryColor;
+                
+            }
+            
+            &:before {
+
+                content: '';
+                background-size: auto 80%;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                display: block;
+                height: 100px;
+                width: 100%;
+                bottom: 50px;
+                left: 0;
+
+            }
+
+            &.food {
+
+                &:before {
+
+                    background-image: url(../svg/main.svg);
+
+                }
+
+            }
+
+            &.drink {
+
+                &:before {
+
+                    background-image: url(../svg/drinks.svg);
+
+                }
+
+            }
+
+            &.sunday {
+
+                &:before {
+
+                    background-image: url(../svg/sunday.svg);
+
+                }
+
+            }
+
+            &.kids {
+
+                &:before {
+
+                    background-image: url(../svg/kids.svg);
+
+                }
+
+            }
+
+            &.brunch {
+
+                &:before {
+
+                    background-image: url(../svg/brunch.svg);
+                    background-size: auto 50%;
+
+                }
+
+            }
+            
+        }
+        
     }
     
     &__nav {
@@ -42,6 +130,12 @@
         text-align: center;
         padding-bottom: 20px;
         overflow: hidden;
+        
+        .geronimo & {
+            
+            padding-top: 100px;
+            
+        }
         
     }
     

@@ -6,6 +6,14 @@
 	$group_id = \Arr::get($config, 'group');
 	$menu_group = \Prop\CP\Menus\Group::forge($siteid, $group_id);
 
+    function contains($str, array $arr)
+    {
+        foreach($arr as $a) {
+            if (stripos($str,$a) !== false) return true;
+        }
+        return false;
+    }
+
 ?>
     
 <div class="centre-wrap">
@@ -17,10 +25,37 @@
             <? $c = count($menu_group->menu_options_urls);?>
 
             <? foreach($menu_group->menu_options_urls as $url => $title) :?>
+                           
+                <? 
+            
+                $class = 'food';
+            
+                if(contains($title, ['lunch', 'dinner', 'food', 'main'])) {
+                 
+                    $class = 'food';
+    
+                } elseif(contains($title, ['wine', 'drinks', 'beer', 'drink'])) {
+                    
+                    $class = 'drink';
+                    
+                } elseif(contains($title, ['sunday'])) {
+                    
+                    $class = 'sunday';
+                    
+                } elseif(contains($title, ['kids', 'kid'])) {
+                    
+                    $class = 'kids';
+                    
+                } elseif(contains($title, ['brunch', 'breakfast', 'snack', 'snacks'])) {
+                    
+                    $class = 'brunch';
+                    
+                } ?>
+               
                 <? if(is_numeric($url)) :?>
-                    <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
+                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
                 <? else :?>
-                    <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button pdf<?= $i === 0 ? ' active' : '' ?>" href="<?= $url ?>" target="_blank"><?= $title?></a>
+                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button pdf<?= $i === 0 ? ' active' : '' ?>" href="<?= $url ?>" target="_blank"><?= $title?></a>
                 <? endif;?>
                 <? $i++;?>
             <? endforeach;?>

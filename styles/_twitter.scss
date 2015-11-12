@@ -6,6 +6,12 @@
     background: $primaryColor;
     color: $secondaryFontColor;
     
+    .geronimo & {
+        
+        background: $tertiaryColor;
+        
+    }
+    
     a {
         
         color: $secondaryFontColor;

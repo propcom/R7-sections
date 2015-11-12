@@ -25,6 +25,22 @@
             
         }
         
+        .geronimo & {
+            
+            background: $secondaryColor;
+            color: $tertiaryFontColor;
+            border-color: $primaryColor;
+            
+            &:hover {
+                
+                background: $primaryColor;
+                color: $secondaryFontColor;
+                border-color: $secondaryColor;
+                
+            }
+            
+        }
+        
     }
     
 }

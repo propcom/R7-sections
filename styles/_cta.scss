@@ -32,6 +32,12 @@
         
         display: block;
         
+        .geronimo & {
+            
+            border: 3px solid $secondaryColor;
+            
+        }
+        
         img {
             
             margin-bottom: 20px;
@@ -104,6 +110,13 @@
             color: $primaryColor;
             background: $secondaryFontColor;
             text-decoration: none;
+            
+        }
+        
+        .geronimo & {
+            
+            background: $secondaryColor;
+            color: $primaryFontColor;
             
         }
         

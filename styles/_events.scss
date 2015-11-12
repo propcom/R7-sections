@@ -205,7 +205,7 @@
             
                 width: 25%;
 
-            }
+            }         
             
         }
         
@@ -315,6 +315,13 @@
             position: relative;
             top: -5px;
             
+            .geronimo & {
+
+                color: $primaryFontColor;
+                font-style: normal;
+
+            }
+            
         }
         
         span {
@@ -325,6 +332,12 @@
             font-style: normal;
             
             @include font-size($milli-size);
+            
+            .geronimo & {
+
+                color: $secondaryFontColor;
+
+            }
             
         }
         
