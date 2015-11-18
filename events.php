@@ -26,19 +26,34 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
 
                                <? $date = strtotime($event->date_start);?>
                                
+                                <? if(\Arr::get($config, 'link')) :?>
+                                    <a href="<?= \Arr::get($config, 'link');?>">
+                                <? endif;?>
+                               
                                 <? if($event->image_id) :?>
                                     <img zRS-src="<?= $event->image->get_src('small');?>" alt="<?= $event->name;?>" height="185" width="265">                                
                                 <? else :?>
                                     <img zRS-src="/assets/img/regions/events/small-ph.png" alt="<?= $event->name;?>" height="185" width="265">
                                 <? endif;?>
                                 
+                                <? if(\Arr::get($config, 'link')) :?>
+                                </a>
+                                <? endif;?>
                                 <div class="events__info">
                                     <div class="events__date">
                                         <span><?= date('F', $date);?></span>
                                         <p><?= date('d', $date);?></p>
                                     </div>
-                                    <div class="events__title">
-                                        <h5><?= \Str::truncate($event->name, 30, '...');?></h5>
+                                    <div class="events__title">                                       
+                                        <h5>
+                                            <? if(\Arr::get($config, 'link')) :?>
+                                            <a href="<?= \Arr::get($config, 'link');?>">
+                                            <? endif;?>
+                                            <?= \Str::truncate($event->name, 30, '...');?>
+                                            <? if(\Arr::get($config, 'link')) :?>
+                                            </a>
+                                            <? endif;?>
+                                        </h5>
                                     </div>                                    
                                 </div>                                
 
