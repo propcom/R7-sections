@@ -25,13 +25,9 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                             <div class="events__slide">
 
                                <? $date = strtotime($event->date_start);?>
-                                <? if(\Arr::get($config, 'link')) :?>
-                                    <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
-                                <? endif;?>
-                               
                                 <? if($event->image_id) :?>
                                     <? if(\Arr::get($config, 'link')) :?>
-                                        <a href="<?= \Arr::get($config, 'link');?>">
+                                        <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
                                     <? endif;?>
                                         <img zRS-src="<?= $event->image->get_src('small');?>" alt="<?= $event->name;?>" height="185" width="265">
                                     <? if(\Arr::get($config, 'link')) :?>
@@ -43,10 +39,8 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
 
                                 <div class="events__info">
                                     <div class="events__date">
-                                        <a href="whats-on">
                                             <span><?= date('F', $date);?></span>
                                             <p><?= date('d', $date);?></p>
-                                        </a>
                                     </div>
                                     <div class="events__title">                                       
                                         <h5>
