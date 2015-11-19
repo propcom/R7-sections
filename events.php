@@ -24,8 +24,11 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                         <? foreach($date_events as $event):?>
                             <div class="events__slide">
 
-                               <? $date = strtotime($event->date_start);?>          
-
+                               <? $date = strtotime($event->date_start);?>
+                                <? if(\Arr::get($config, 'link')) :?>
+                                    <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
+                                <? endif;?>
+                               
                                 <? if($event->image_id) :?>
                                     <? if(\Arr::get($config, 'link')) :?>
                                         <a href="<?= \Arr::get($config, 'link');?>">
@@ -48,7 +51,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                     <div class="events__title">                                       
                                         <h5>
                                             <? if(\Arr::get($config, 'link')) :?>
-                                            <a href="<?= \Arr::get($config, 'link');?>">
+                                            <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
                                             <? endif;?>
                                             <?= \Str::truncate($event->name, 30, '...');?>
                                             <? if(\Arr::get($config, 'link')) :?>
@@ -59,6 +62,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                 </div>                                
 
                             </div>
+
                         <? $i++;?>
                         <? endforeach;?>
                     <? endforeach;?>
