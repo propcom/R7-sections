@@ -12,7 +12,15 @@
                     <img src="<?= \Arr::get($region, 'image');?>" alt="<?= \Arr::get($region, 'title');?>" class="scale-with-grid">
 
                     <h5><?= \Arr::get($region, 'title', 'Default');?></h5>
-                    <p><?= \Str::truncate(\Arr::get($region, 'content', 'Default content, please add your own.'), 200, '...');?></p>
+                    
+                    <?php $content = \Arr::get($region, 'content', 'Default content, please add your own.'); ?>
+                    <?php if(is_string($content)): ?>
+                        <p><?= \Str::truncate($content, 200, '...');?></p>
+                    <?php elseif(is_array($content)): ?>
+                        <?foreach ($content as $line): ?>
+                            <p><?= $line; ?></p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 
                     <? if(isset($region['button'])) :?>
                    
