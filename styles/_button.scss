@@ -27,16 +27,81 @@
         
         .geronimo & {
             
-            background: $secondaryColor;
-            color: $tertiaryFontColor;
-            border-color: $primaryColor;
-            
             &:hover {
                 
                 background: $primaryColor;
                 color: $secondaryFontColor;
                 border-color: $secondaryColor;
                 
+            }
+            
+            position: relative;
+            padding: 10px 15px;
+            background: none;
+            border: 5px solid $primaryColor;
+            color: $white;
+            font-weight: $reg;
+            @include font-size(12);
+
+            &:hover {
+
+                &:before,
+                &:after,
+                .button__button__dots:before,
+                .button__button__dots:after {
+
+                    background: #719F9C;
+                    border-color: $white;
+
+                }
+
+            }
+
+            &:before,
+            &:after,
+            &__dots:before,
+            &__dots:after {
+
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: $white;
+                border: 2px solid #719F9C;
+                border-radius: 50%;
+
+            }
+
+            &:before {
+
+                top: -10%;
+                left: 50%;
+
+            }
+
+            &:after {
+
+                bottom: -10%;
+                left: 50%;
+
+            }
+
+            &__dots {
+
+                &:before {
+
+                    bottom: 40%;
+                    left: -3%;
+
+                }
+
+                &:after {
+
+                    bottom: 40%;
+                    right: -3%;
+
+                }
+
             }
             
         }
