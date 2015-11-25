@@ -14,7 +14,11 @@ $t = new CacheTwitter(10); // 10 min cache
 $twitterAvailable = $t->twitterAvailable();
 $userTimeline = $t->userTimeline(USER, MAXIMUM_ROWS);
 
-;?>   
+;?>
+
+<div class="twitter-title">
+    <h1><?= \Arr::get($config, 'title'); ?></h1>
+</div>
 
 <section class="twitter">
     
