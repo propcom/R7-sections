@@ -18,8 +18,7 @@
         
         width: 100%;
         overflow: hidden;
-        max-width: 1000px;
-        margin: 0 auto;
+        margin: 0;
         
     }
     
@@ -224,16 +223,60 @@
         
     }
     
+    &__full-info3 {
+
+        float: left;
+        width: 60%;
+        padding-left: 20px;
+        text-align: left;
+
+        @include mq($mq-mob--lrg) {
+
+            width: 100%;
+            padding-left: 0px;
+
+        }
+
+        .events__date {
+
+            width: 25%;
+            border-right: 1px solid $white;
+
+            @include mq($mq-mob--lrg) {
+
+                width: 25%;
+
+            }         
+
+        }
+
+        .events__title {
+
+            width: 80%;
+            padding-left: 10px;
+
+            @include mq($mq-mob--lrg) {
+
+                width: 73%;
+
+            }
+
+        }
+
+    }
+    
     &__entry2 {
        
-        width: 25%;
-        clear: both;
+        width: 23%;
+        float: left;
         margin-bottom: 25px;
+        margin-right: 2%;
         padding: 12px;
         padding-bottom: 60px;
         overflow: hidden;
         border: 3px solid $primaryColor;
         position: relative;
+        min-height: 1000px;
         
         img {
             
@@ -243,14 +286,39 @@
             
         }
         
-    }
-    
-    &__buttons {
-        
-        width: 100%;
-        padding-top: 40px;
-        overflow: hidden;
-        
+    }    
+
+    &__button2 {
+        width: 15%;
+        background: $tertiaryColor;
+        color: $secondaryColor;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        display: block;
+        text-align: center;
+        padding-top: 15px;
+        @include font-size(18);
+
+        a {
+            text-transform: uppercase;
+            color: $secondaryColor;
+        }
+        &__back {
+            width: 10%;
+            background: $tertiaryColor;
+            color: $secondaryColor;
+            height: 30px;
+            display: block;
+            text-align: center;
+            padding-top: 7px;
+            @include font-size(12);
+            margin-bottom: 25px;
+            a {
+                text-transform: uppercase;
+                color: $secondaryColor;
+            }
+        }
     }
     
     &__content2 {
@@ -261,6 +329,8 @@
         float: right;
         padding-top: 15px;
         padding-left: 0;
+        margin-top: 10px;
+        border-top: 1px solid $white;
         
         .button__button {
             
@@ -298,19 +368,68 @@
         
     }
     
+    &__content3 {
+
+        width: 100%;
+        text-align: left;
+        clear: both;
+        float: right;
+        padding-top: 15px;
+        padding-left: 0;
+        margin-top: 10px;
+        border-top: 1px solid $white;
+
+        .button__button {
+
+            float: right;
+            padding: 10px 0;
+            width: 150px;
+            text-align: center;
+            @include font-size(16);
+            line-height: normal;
+
+            @include mq($mq-tab) {
+
+                margin-bottom: 20px;
+
+            }
+
+            @include mq($mq-mob--lrg) {
+
+                margin: 0;
+
+                @include width(2, 2%);
+                float: left;
+
+            }
+
+        }
+
+        @include mq($mq-mob--lrg) {
+
+            width: 100%;
+            padding: 20px 0 0 0;
+
+        }
+
+    }
+    
     &__date2 {
         
         float: left;
-        width: 25%;
+        width: 35%;
         margin-right: 10%;
         padding: 0;
+        border-right: 1px solid $white;
+        text-align: left;
+        margin-top: 5px;
         
         p {
             
-            color: $tertiaryFontColor;
+            color: $tertiaryColor;
             font-style: italic;
-            @include font-size(30);
-            text-align: center;
+            @include font-size(40);
+            text-align: left;
             line-height:50px;
             margin: 0;
             position: relative;
@@ -318,7 +437,7 @@
             
             .geronimo & {
 
-                color: $primaryColor;
+                color: $tertiaryColor;
                 font-style: normal;
 
             }
@@ -336,7 +455,7 @@
             
             .geronimo & {
 
-                color: $black;
+                color: $white;
 
             }
             
@@ -350,10 +469,65 @@
         
     }
     
+    &__date3 {
+
+        float: left;
+        width: 15%;
+        margin-right: 10%;
+        padding: 0;
+        border-right: 1px solid $white;
+        text-align: left;
+        margin-top: 5px;
+
+        p {
+
+            color: $tertiaryColor;
+            font-style: italic;
+            @include font-size(40);
+            text-align: left;
+            line-height:50px;
+            margin: 0;
+            position: relative;
+            top: -5px;
+
+            .geronimo & {
+
+                color: $tertiaryColor;
+                font-style: normal;
+
+            }
+
+        }
+
+        span {
+
+            text-transform: uppercase;
+            font-family: $secondaryFont;
+            color: $primaryFontColor;
+            font-style: normal;
+
+            @include font-size($milli-size);
+
+            .geronimo & {
+
+                color: $white;
+
+            }
+
+        }
+
+        @include mq($mq-mob--lrg) {
+
+            width: 35%;
+
+        }
+
+    }
+    
     &__title2 {
         
         float: left;
-        width: 65%;
+        width: 55%;
         text-align: left;
         
         @include mq($mq-mob--lrg) {
@@ -370,6 +544,7 @@
         
         h5 {
             font-style: italic;
+            @include font-size(16);
         }
         
     }
@@ -433,6 +608,68 @@
             
         }
         
+    }
+    
+    &__img3 {
+
+        float: left;        
+        background: $secondaryColor;
+        position: relative;
+        width: 40%;
+        overflow: hidden;
+        border: 4px solid $white;
+
+        &:after {
+
+            content: '';
+            padding-top: 70%;
+            display: block;
+
+
+        }
+
+        img {
+
+            position: absolute;
+            width: 100%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+
+            .lt-ie9 & {
+
+                top: 0;
+                left: 0;
+                width: 101%;
+
+            }
+
+            &.fit {
+
+                top: 0;
+                left: 0;
+                width: 100%;
+
+                -webkit-transform: translateX(0%) translateY(-0%);
+                -ms-transform: translateX(0%) translateY(-0%);
+                transform: translateX(0%) translateY(-0%);
+
+            }
+
+
+        }
+
+        @include mq($mq-mob--lrg) {
+
+            width: 100%;
+            margin-bottom: 20px;
+
+        }
+
     }
     
     &__start {
