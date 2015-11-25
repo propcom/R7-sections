@@ -42,6 +42,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
                     <div class="events__entry2" id="<?= $event->id;?>">
+                        <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
                         <? $date = strtotime($event->date_start);?>
 
                         <? if($event->image_id) :?>
@@ -88,7 +89,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                                 <? endif;?>
                             </div>
                         </div>
-                        <a href="/whats-on#" class="events-new__button" title="Book">Book</a>
+                        </a>
                     </div>
                 <? endforeach;?>
             <? endforeach;?>
