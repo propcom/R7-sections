@@ -75,7 +75,15 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                                 <? endif;?>
                             </div>                        
                             <div class="events__content2">
-                                <?= $event->description;?>
+                                <?
+                                    if (strlen($event->description) >= 151) {
+                                        echo substr($event->description, 0, 150). " ... " ;
+                                    }
+                                    else {
+                                        echo $event->description;
+                                    }
+
+                                ?>
                                 
                                 <? if($event->booking_link || $event->more_info_link) :?>
                                     <div class="events__buttons">

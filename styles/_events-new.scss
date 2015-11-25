@@ -230,10 +230,11 @@
         padding-left: 20px;
         text-align: left;
 
-        @include mq($mq-mob--lrg) {
+        @include mq(700px) {
 
             width: 100%;
             padding-left: 0px;
+            position: relative;
 
         }
 
@@ -276,7 +277,19 @@
         overflow: hidden;
         border: 3px solid $primaryColor;
         position: relative;
-        min-height: 1000px;
+        min-height: 600px;
+        
+        @include mq(1000px) {
+            width: 48%;
+            min-height: 685px;
+        }
+        
+        @include mq(600px) {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            float: none;
+        }
         
         img {
             
@@ -306,6 +319,9 @@
         }
         &__back {
             width: 10%;
+            @include mq(600px) {
+                width: 20%;
+            }
             background: $tertiaryColor;
             color: $secondaryColor;
             height: 30px;
@@ -315,6 +331,7 @@
             @include font-size(12);
             margin-bottom: 25px;
             a {
+                display: block;
                 text-transform: uppercase;
                 color: $secondaryColor;
             }
@@ -357,6 +374,10 @@
 
             }
             
+            @include mq(600px) {
+                width: 90% !important;
+            }
+            
         }
         
         @include mq($mq-mob--lrg) {
@@ -376,7 +397,7 @@
         float: right;
         padding-top: 15px;
         padding-left: 0;
-        margin-top: 10px;
+        margin-top: 30px;
         border-top: 1px solid $white;
 
         .button__button {
@@ -472,10 +493,16 @@
     &__date3 {
 
         float: left;
-        width: 15%;
-        margin-right: 10%;
+        width: 10%;
+        @include mq(1200px) {
+            width: 20%;
+        }
         padding: 0;
         border-right: 1px solid $white;
+        @include mq(700px) {
+            border: none;
+            width: 20%;
+        }
         text-align: left;
         margin-top: 5px;
 
@@ -516,12 +543,6 @@
 
         }
 
-        @include mq($mq-mob--lrg) {
-
-            width: 35%;
-
-        }
-
     }
     
     &__title2 {
@@ -543,10 +564,21 @@
         }
         
         h5 {
+            padding-top: 5px;
             font-style: italic;
-            @include font-size(16);
+            @include font-size(14);
         }
         
+    }
+    
+    &__title3 {
+        width: 88%;
+        float: right;
+        padding-top: 5px;
+        @include mq(1200px){
+            width: 80%;
+            text-align: right;
+        }
     }
     
     &__img2 {
@@ -678,4 +710,15 @@
         
     }
     
+}
+
+.geronimo .button__button--small {
+    @include mq(700px) {
+        right: 0 !important;
+        padding-top: 5px !important;
+        font-size: 12px !important;
+    }
+    @include mq(600px) {
+        width: 30% !important;
+    }
 }
