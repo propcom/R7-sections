@@ -23,7 +23,7 @@ if(isset($_GET['date'])){
 
         <div class="events__full">
             <div class="events__button2__back">
-                <a href="javascript:history.go(-1)">&laquo; Back</a>
+                <a href="/whats-on">&laquo; Back</a>
             </div>
             <? if($events) :?>    
             <? foreach($events as $event):?>

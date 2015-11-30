@@ -23,6 +23,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                     <? foreach($events as $date => $date_events):?>
                         <? foreach($date_events as $event):?>
                             <div class="events__slide">
+                          <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
 
                                <? $date = strtotime($event->date_start);?>
                                 <? if(\Arr::get($config, 'link')) :?>
@@ -60,7 +61,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                         </h5>
                                     </div>                                    
                                 </div>                                
-
+                                </a>
                             </div>
 
                         <? $i++;?>

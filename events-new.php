@@ -29,21 +29,21 @@ $events = $calendar->get_events($event_month, 'last day of this month');
         
         <p class="larger"><?= \Arr::get($config, 'subtitle');?></p>
         
-        <div class="events__full">
+        <div class="events__full" id="events-container">
             <div class="events__months">
                 <ul>
                     <? for($m = 1; $m <= 12; $m++) :?>
                     <? $month = date('M', mktime(0, 0, 0, $m, 1, date('Y')));?>
-                    <li><a href="/<?= \Arr::get($config, 'url', 'events');?>?month=<?= $month;?>"<?= $month === $get_month ? ' class="active"' : '';?>><?= $month;?></a></li>
+                    <li><a href="/<?= \Arr::get($config, 'url', 'events');?>?month=<?= $month;?>#events-container"<?= $month === $get_month ? ' class="active"' : '';?>><?= $month;?> &rarr;</a></li>
                     <? endfor; ?>                    
                 </ul>                
             </div>
         <? if($events) :?>    
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
-                    <div class="events__entry2" id="<?= $event->id;?>">
+                    <? $date = strtotime($event->date_start);?>
+                    <div class="events__entry2  <? if(date('d', $date) != date('d')): ?>events__entry2__past<? endif; ?>" id="<?= $event->id;?>">
                         <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
-                        <? $date = strtotime($event->date_start);?>
 
                         <? if($event->image_id) :?>
                             <div class="events__img2">
