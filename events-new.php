@@ -77,10 +77,10 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                             <div class="events__content2">
                                 <?
                                     if (strlen($event->description) >= 151) {
-                                        echo substr($event->description, 0, 150). " ... " ;
+                                        echo strip_tags (substr($event->description, 0, 150)). " ... " ;
                                     }
                                     else {
-                                        echo $event->description;
+                                        echo strip_tags ($event->description);
                                     }
 
                                 ?>
