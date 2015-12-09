@@ -34,7 +34,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                     <? if(\Arr::get($config, 'link')) :?>
                                         <a href="<?= \Arr::get($config, 'link');?>">
                                     <? endif;?>
-                                        <img zRS-src="<?= $event->image->get_src('small');?>" alt="<?= $event->name;?>" height="185" width="265">
+                                        <img zRS-src="<?= $event->image->get_src('medium');?>" alt="<?= $event->name;?>" height="185" width="265">
                                     <? if(\Arr::get($config, 'link')) :?>
                                     </a>
                                     <? endif;?>
