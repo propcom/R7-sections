@@ -120,8 +120,8 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
 
                     <? else: ?>
 
-                        <h4>Claim your Free Drink</h4>
-                        <p class="welcomeText">Join our mailing list and receive our news and events straight to your inbox.</p>
+                        <h4><?= \Arr::get($config, 'title', 'Claim your Free Drink');?></h4>
+                        <p class="welcomeText"><?= \Arr::get($config, 'subtitle', 'Join our mailing list and receive our news and events straight to your inbox.');?></p>
 
                     <? endif; ?>
 
