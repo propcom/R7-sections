@@ -14,13 +14,19 @@
     
     &__border {
                 
-        padding: 10px 20px 20px 20px;
+        padding: 10px 20px 0px 20px;
         background: $primaryColor;
         max-width: 925px;
         margin: 0 auto;
         text-align: center;
         color: $secondaryFontColor;
         margin-bottom: 40px;
+        
+        a {
+            
+            color: $secondaryFontColor;
+            
+        }
         
     }
     
@@ -29,7 +35,7 @@
         width: 100%;
         max-width: 925px;
         position: relative;
-        margin: 0 auto;    
+        margin: 0 auto 10px;
     
         &:after {
             
@@ -38,6 +44,7 @@
             padding-top: 60.9%;
             
         }
+        
         
     }
     
