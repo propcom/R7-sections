@@ -25,16 +25,16 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                             <div class="events__slide">
 
                                <? $date = strtotime($event->date_start);?>
+                                <? if(\Arr::get($config, 'link')) :?>
+                                <a href="<?= \Arr::get($config, 'link').'?month='.date('M', $date).'#'.$event->id;?>">
+                                <? endif;?>
                                 <? if($event->image_id) :?>
-                                    <? if(\Arr::get($config, 'link')) :?>
-                                        <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
-                                    <? endif;?>
                                         <img zRS-src="<?= $event->image->get_src('small');?>" alt="<?= $event->name;?>" height="185" width="265">
-                                    <? if(\Arr::get($config, 'link')) :?>
-                                    </a>
-                                    <? endif;?>
                                 <? else :?>
                                     <img zRS-src="/assets/img/regions/events/small-ph.png" alt="<?= $event->name;?>" height="185" width="265">
+                                <? endif;?>
+                                <? if(\Arr::get($config, 'link')) :?>
+                                </a>
                                 <? endif;?>
 
                                 <div class="events__info">
@@ -45,7 +45,7 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                     <div class="events__title">                                       
                                         <h5>
                                             <? if(\Arr::get($config, 'link')) :?>
-                                            <a href="<?= \Arr::get($config, 'link').'#'.$event->id;?>">
+                                            <a href="<?= \Arr::get($config, 'link').'?month='.date('M', $date).'#'.$event->id;?>">
                                             <? endif;?>
                                             <?= \Str::truncate($event->name, 30, '...');?>
                                             <? if(\Arr::get($config, 'link')) :?>
