@@ -8,119 +8,64 @@
         
     }
     
-    .button__button {
-                
-        &.float {
-            
-            float: left;
-            
-        }
-        
-        @include width(3, 2%);
-        line-height: initial;
+    &__btn {
+        display: inline-block;
+        height: 100%;
+        width: 32%;
+        min-height: 120px;
+        margin-bottom: 20px;
         padding: 15px;
-        margin-bottom: 2%;
+
+        line-height: initial;
         
         @include mq($mq-tab) { 
-        
-            &:nth-of-type("3n+0") {
-                
-                margin-right: 2%;
-                
-            }
             
             @include width(2, 2%);
-            margin-bottom: 20px;
+            margin-bottom: 0;
             
         }
         
         @include mq($mq-mob--lrg) {
             
             @include width(1, 0%);
-            margin-bottom: 20px;
             
         }
-        
-        .geronimo & {
-            
-            border: 2px solid $secondaryColor;
-            background: $primaryColor;
-            color: $secondaryColor;            
+
+        &__icon {
+            width: 100%;
+            max-width: 80px;
+            display: inline-block;
             position: relative;
-            
-            &:hover {
+            margin: 0 auto 10px;
+        }
+
+        &__name {
+            width: 100%;
+            padding: 15px 0;
+
+            text-transform: uppercase;
+            @include font-size(18,18);
+
+            &:focus {
+                outline: 0;
+            }
+
+            .geronimo & {
                 
-                background: $secondaryColor;
-                color: $primaryColor;
+                border: 2px solid $secondaryColor;
+                background: $primaryColor;
+                color: $secondaryColor;            
+                position: relative;
                 
-            }
-            
-            &:before {
-
-                content: '';
-                background-size: auto 80%;
-                background-repeat: no-repeat;
-                background-position: center;
-                position: absolute;
-                display: block;
-                height: 100px;
-                width: 100%;
-                bottom: 50px;
-                left: 0;
-
-            }
-
-            &.food {
-
-                &:before {
-
-                    background-image: url(../svg/main.svg);
-
+                &:hover {
+                    
+                    background: $secondaryColor;
+                    color: $primaryColor;
+                    
                 }
 
             }
 
-            &.drink {
-
-                &:before {
-
-                    background-image: url(../svg/drinks.svg);
-
-                }
-
-            }
-
-            &.sunday {
-
-                &:before {
-
-                    background-image: url(../svg/sunday.svg);
-
-                }
-
-            }
-
-            &.kids {
-
-                &:before {
-
-                    background-image: url(../svg/kids.svg);
-
-                }
-
-            }
-
-            &.brunch {
-
-                &:before {
-
-                    background-image: url(../svg/brunch.svg);
-                    background-size: auto 50%;
-
-                }
-
-            }
-            
         }
         
     }
@@ -128,15 +73,9 @@
     &__nav {
         
         text-align: center;
-        padding-bottom: 20px;
         overflow: hidden;
-        
-        .geronimo & {
-            
-            padding-top: 100px;
-            
-        }
-        
+        font-size: 0;
+
     }
     
     h3 {

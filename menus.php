@@ -22,17 +22,16 @@
 
         <nav class="menu__nav">
             <? $i = 0;?>
-            <? $c = count($menu_group->menu_options_urls);?>
 
             <? foreach($menu_group->menu_options_urls as $url => $title) :?>
                            
                 <? 
             
-                $class = 'food';
+                $class = 'main';
             
                 if(contains($title, ['lunch', 'dinner', 'food', 'main'])) {
                  
-                    $class = 'food';
+                    $class = 'main';
     
                 } elseif(contains($title, ['wine', 'drinks', 'beer', 'drink'])) {
                     
@@ -53,9 +52,14 @@
                 } ?>
                
                 <? if(is_numeric($url)) :?>
-                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
+                    <a class="<?= $class;?> menu__btn<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);">
+                        <img class="menu__btn__icon" src="/assets/svg/<?= $class ?>.svg" alt="<?= $class ?> icon">
+                        <button class="menu__btn__name"><?= $title?></button>
+                    </a>
                 <? else :?>
-                    <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button pdf" href="<?= $url ?>" target="_blank"><?= $title?></a>
+                    <a class="menu__btn pdf" href="<?= $url ?>" target="_blank">
+                        <button class="menu__btn__name"><?= $title?></button>
+                    </a>
                 <? endif;?>
                 <? $i++;?>
             <? endforeach;?>
