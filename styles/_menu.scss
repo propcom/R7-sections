@@ -18,7 +18,7 @@
 
         line-height: initial;
         
-        @include mq($mq-tab) { 
+        @include mq($mq-tab) {  
             
             @include width(2, 2%);
             margin-bottom: 0;
