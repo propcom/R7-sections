@@ -4,10 +4,16 @@ Shared_Autoloader::forge()->setVersion('v1')->register();
 
 $calendar_id = \Arr::get($config, 'calendar');
 $calendar = \Prop\CP\Events\Calendar::forge($siteid, $calendar_id);
+if(isset($_GET['month']) && $_GET['month']=='Feb')		// february has an issue ref http://stackoverflow.com/questions/9058523/php-date-and-strtotime-return-wrong-months-on-31st
+{
+	$get_month = date('M',strtotime('01 Feb'));
+	$event_month = (isset($_GET['month']) ? date('M Y', strtotime('01 Feb')) : date('M Y'));
+}
+else{
+	$get_month = (isset($_GET['month']) ? date('M', strtotime($_GET['month'])) : date('M'));
+	$event_month = (isset($_GET['month']) ? date('M Y', strtotime($_GET['month'])) : date('M Y'));
+}
 
-$get_month = (isset($_GET['month']) ? date('M', strtotime($_GET['month'])) : date('M'));
-
-$event_month = (isset($_GET['month']) ? date('M Y', strtotime($_GET['month'])) : date('M Y'));
 
 if(time() > strtotime('+1 month', strtotime($event_month))) {
     
@@ -15,8 +21,7 @@ if(time() > strtotime('+1 month', strtotime($event_month))) {
     
 }
 
-$events = $calendar->get_events($event_month, 'last day of this month');
-
+$events = $calendar->get_events($event_month, 'last day of this month', 50);
 ?>
 
 <div class="events events--full">
@@ -42,7 +47,8 @@ $events = $calendar->get_events($event_month, 'last day of this month');
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
                     <? $date = strtotime($event->date_start);?>
-                    <div class="events__entry2  <? if(date('d', $date) < date('d')): ?>events__entry2__past<? endif; ?>" id="<?= $event->id;?>">
+            
+                    <div class="events__entry2  <? if(date('d', $date) < date('d') && date('Y') > date('Y', $date)): ?>events__entry2__past<? endif; ?>" id="<?= $event->id;?>">
                         <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
 
                         <? if($event->image_id) :?>
