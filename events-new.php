@@ -47,8 +47,15 @@ $events = $calendar->get_events($event_month, 'last day of this month', 50);
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
                     <? $date = strtotime($event->date_start);?>
-            
-                    <div class="events__entry2  <? if(date('d', $date) < date('d') && date('Y') > date('Y', $date)): ?>events__entry2__past<? endif; ?>" id="<?= $event->id;?>">
+
+
+                    <div class="events__entry2
+                    <? if
+                    (date('M', $date) < date('M') && date('d') > date('d', $date)
+                    ||
+                    date('d') > date('d', $date) && date('M', $date) >= date('M')): ?>
+                    events__entry2__past<? endif; ?>" id="<?= $event->id;
+                    ?>">
                         <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
 
                         <? if($event->image_id) :?>
