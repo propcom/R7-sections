@@ -15,7 +15,23 @@ if(time() > strtotime('+1 month', strtotime($event_month))) {
     
 }
 
-$events = $calendar->get_events($event_month, 'last day of this month');
+if($type === 'geronimo') :
+
+    if($get_month == (date('M'))) :
+
+        $events = $calendar->get_events('today', 'last day of this month');
+
+    else :
+
+        $events = $calendar->get_events($event_month, 'last day of this month');
+
+    endif;
+
+else:
+    
+    $events = $calendar->get_events($event_month, 'last day of this month');
+
+endif;
 
 ?>
 
