@@ -27,7 +27,7 @@
         @include width(3, 5%);
         float: left;
         border: 3px solid $primaryColor;
-        padding: 30px 70px 70px 70px;
+        padding: 10px 10px 50px 10px;
         position: relative;
         
         display: block;
@@ -41,12 +41,6 @@
         img {
             
             margin-bottom: 20px;
-            
-        }
-        
-        @include mq(1180px) {
-         
-            padding: 30px 30px 70px 30px;
             
         }
         
