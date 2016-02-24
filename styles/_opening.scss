@@ -1,0 +1,28 @@
+
+	.opening {
+
+		padding: 40px 0 20px 0;
+		text-align: center;
+		overflow: hidden;
+
+		p {
+			text-transform: uppercase;
+			margin-bottom: 5px;
+		}
+
+		&__col {
+
+			display: inline-block;
+			vertical-align: top;
+			margin: 20px 0;
+			@include width(4, 1%, false);
+			color: $primaryColor;
+			line-height: 25px;
+
+			@include mq(800px) {
+				@include width(2, 1%, false);
+			}
+
+		}
+
+	}

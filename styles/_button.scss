@@ -7,7 +7,7 @@
         display: inline-block;
         background: $primaryColor;
         color: $secondaryFontColor;
-        font-family: $secondaryFont;
+        font-family: $primaryFont;
         font-weight: bold;
         @include font-size($delta-size);
         text-transform: uppercase;
