@@ -97,9 +97,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
     
     <div class="signup__background">
         
-        <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
-
-            <h3>Sign-Up</h3>            
+        <div class="centre-wrap  centre-wrap--centred  centre-wrap--no">
 
             <div id="<?= $multiFormName; ?>-wrapper" class="signup__wrapper">
 
@@ -162,8 +160,6 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                            </div>    
 
                         </div>
-                        
-                        <p class="terms"><a href="javascript:void(0);" class="js-terms">T &amp; Cs</a></p>
 
                         <div style="display:none !important;">
                             <textarea name="textboxfilter" rows="" cols=""></textarea>
@@ -171,6 +167,8 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                         </div>
 
                         <input type="submit" name="submitted" value="Send" class="submit" />
+                        
+                        <p class="terms"><a href="javascript:void(0);" class="js-terms">T &amp; Cs</a></p>
 
                     </form>
 
