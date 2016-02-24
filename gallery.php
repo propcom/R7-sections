@@ -21,12 +21,21 @@
         <? $images = $album->images();?>
         <? $i = 0;?>
         <? foreach($images as $image) :?>
-        <div class="gallery__img<?= ($i + 1) % 3 === 0 ? ' last' : '';?>">
-            <div class="js-imager" data-src="<?= $image->get_src('medium');?>" data-height="400" data-width="600"></div>
-            <noscript>
-                <img src="<?= $image->get_src();?>" alt="<?= $sitename;?>">                    
-            </noscript>
-        </div>
+
+            <? if(($i == 1) || ($i == 7)): ?>
+                <div class="gallery__section">
+            <? endif; ?>
+
+
+            <div class="js-gallery-img  gallery__img--bg  gallery__img<?= $i == 5 ? ' gallery__img--large  gallery__img--large--right' : ''; ?> <?= $i == 6 ? ' gallery__img--large  gallery__img--large--left' : '';?>">
+                <span class="gallery__img--bg__img" style="background-image: url(<?= $image->get_src('medium');?>);"></span>
+            </div>
+
+            <? if(($i == 4) || ($i == 10)): ?>
+                </div>
+            <? endif; ?>
+
+        
         <? $i++;?>
         <? endforeach;?>
     </div>
