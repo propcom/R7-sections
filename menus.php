@@ -53,9 +53,9 @@
                 } ?>
                
                 <? if(is_numeric($url)) :?>
-                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
+                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button  button__button--menu<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
                 <? else :?>
-                    <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button pdf" href="<?= $url ?>" target="_blank"><?= $title?></a>
+                    <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button  button__button--menu pdf" href="<?= $url ?>" target="_blank"><?= $title?></a>
                 <? endif;?>
                 <? $i++;?>
             <? endforeach;?>

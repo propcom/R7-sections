@@ -141,7 +141,7 @@
     
     h3 {
         
-        border-bottom: 5px solid $primaryColor;
+        border-bottom: 5px solid $quniaryColor;
         padding-bottom: 10px;
         margin-bottom: 25px;
         padding-top: 20px;
@@ -149,6 +149,12 @@
     }
     
     &__container {
+
+        border: 2px solid $primaryColor;
+
+        @include mq($mq-tab) { 
+            padding: 20px;
+        }
         
         &--sub {
             
@@ -188,7 +194,6 @@
     
     &__entry {
         
-        border-bottom: 1px solid $white;
         margin-bottom: 15px;
         overflow: hidden;
         
@@ -209,7 +214,6 @@
             p {
                 
                 @include font-size($base-font-size);
-                font-style: italic;
                 margin-bottom: 15px;
                 
                 &.title {
