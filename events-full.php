@@ -38,11 +38,16 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                     <? endfor; ?>                    
                 </ul>                
             </div>
+
+        <? $todaysDate = time();?>
+        
         <? if($events) :?>    
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
+
+
                     <? $date = strtotime($event->date_start);?>
-                    <? $todaysDate = time();?>
+                    
                     <div class="events__entry  <? if($date < $todaysDate) : ?> events__entry--past <? endif ?>" id="<?= $event->id;?>">
                         
 
@@ -66,6 +71,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                             <div class="events__date" id="<?= date('d', $date);?>">
                                 <span><?= date('F', $date);?></span>
                                 <p><?= date('d', $date);?></p>
+                                <span><?= date('Y', $date);?></span>
                             </div>
                             <div class="events__title">
                                 <h5><?= $event->name;?></h5>
