@@ -12,7 +12,7 @@
 			z-index: 100;
 			padding: 20px 0;
 			-webkit-backdrop-filter: blur(15px);
-			@include rgba('background-color', rgba($primaryColor, 0.6), $primaryColor);
+			@include rgba('background-color', rgba($black, 0.6), $black);
 
 			.book__wrapper {
 				position: relative;
