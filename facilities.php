@@ -57,7 +57,7 @@
                             
                             <? if(isset($config['button'])) :?>
                             <div class="facilities__buttons">
-                                <a class="button__button" href="<?= \Arr::get($config, 'button', '#enquire');?>">Hire Enquiry</a>
+                                <a class="<?if(\Arr::get($info, 'dmn') == true):?>js-popup<?endif?>  button__button" <?if(\Arr::get($info, 'dmn') == true):?>data-popup="book"<?endif?> href="<?= \Arr::get($info, 'button', '#enquire');?>">Hire Enquiry</a>
                             </div>
                             <? endif;?>
                         </div>
