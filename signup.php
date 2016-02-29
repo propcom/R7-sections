@@ -97,9 +97,9 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
     
     <div class="signup__background">
         
-        <div class="centre-wrap  centre-wrap--centred  centre-wrap--no">
+        <div class="centre-wrap  centre-wrap--centred  centre-wrap--no  clearfix">
 
-            <div id="<?= $multiFormName; ?>-wrapper" class="signup__wrapper">
+            <div id="<?= $multiFormName; ?>-wrapper" class="signup__wrapper  clearfix">
 
                 <? // Success Text  ?>
                 <? if ($fh->showSuccessText): ?>
@@ -123,7 +123,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
 
                     <? endif; ?>
 
-                    <form action="" method="post" enctype="multipart/form-data" id="<?= $multiFormName; ?>" <?= $fh->showErrorText ? 'class="form-error"' : ''?>>
+                    <form action="" method="post" enctype="multipart/form-data" id="<?= $multiFormName; ?>" class="clearfix<?= $fh->showErrorText ? '  form-error' : ''?>">
 
                         <div class="field-wrap<?php if ($fh->fields['forename']->isError) { ?> error<? } ?>">
                             <label for="<?= $multiFormName ?>-forename">Name</label>
@@ -136,7 +136,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                             <input type="email" name="email" id="<?= $multiFormName ?>-email" value="<?php echo $fh->fields['email']->value ?>" <?= $emailRequired ? 'required' : ''; ?> />
                         </div>
 
-                        <div class="last field-wrap<?php if ($fh->fields['dob']->isError) { ?> error<? } ?>">
+                        <div class="field-wrap<?php if ($fh->fields['dob']->isError) { ?> error<? } ?>">
                             <label for="dob">Birthday</label>
 
                             <div class="select-wrap">
@@ -166,7 +166,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                             <input type="hidden" name="multiFormName" value="<?= $multiFormName ?>" />
                         </div>
 
-                        <input type="submit" name="submitted" value="Send" class="submit" />
+                        <input type="submit" name="submitted" value="Send" class="submit last" />
                         
                         <p class="terms"><a href="javascript:void(0);" class="js-terms">T &amp; Cs</a></p>
 

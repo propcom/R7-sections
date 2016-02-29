@@ -13,7 +13,7 @@
 	        <div class="opening__col">
 		
 		        <p class="text-upper">
-		        	Opening Times
+		        	Opening Hours
 		        </p>
 
 		        <ul>
@@ -37,7 +37,7 @@
 			<div class="opening__col">
 		        
 		        <p class="text-upper">
-		        	Opening Times
+		        	Food Service Hours
 		        </p>
 
 		        <ul>

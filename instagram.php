@@ -1,138 +1,146 @@
 <?php
 
-	class Instagram {
+class Instagram {
 
-		public $result;
-		public $count;
-		public $error = false;
+	public $result;
+	public $count;
+	public $error = false;
 
-		public function __construct($token, $count) {
+	public function __construct( $token, $count ) {
 
-			$this->count = $count;
-            $this->token = $token;
+		$this->count = $count;
+		$this->token = $token;
 
-			try {
+		try {
 
-				$this->result = json_decode($this->fetch('https://api.instagram.com/v1/users/self/media/recent?count='.$this->count.'&access_token='.$this->token));
-                
-				if(isset($this->result->meta->error_message)) {
+			$this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/self/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
 
-					$this->error = $this->result->meta->error_message;
+			if ( isset( $this->result->meta->error_message ) ) {
 
-				} else {
+				$this->error = $this->result->meta->error_message;
 
-					$this->result = $this->result->data;
+			} else {
 
-				}
+				$this->result = $this->result->data;
 
-			} catch(Exception $e) {
+			}
 
-				$this->error = 'Unable to Sign Up to Instagram';
+		} catch ( Exception $e ) {
 
-			};
-		
-		}
+			$this->error = 'Unable to Sign Up to Instagram';
 
-		public function fetch($url) {
-
-            try {
-                
-                $last_modified = filemtime(DOCROOT.'/data/instagram.json');
-
-                if(time() - $last_modified < (60 * 5)) {
-
-                    $result = file_get_contents(DOCROOT.'/data/instagram.json');
-
-                    return $result;
-
-                }
-                
-            } catch(Exception $e){};            
-            
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-			$result = curl_exec($ch);
-			curl_close($ch);
-            
-            file_put_contents(DOCROOT.'/data/instagram.json', $result);
-
-			return $result;
-
-		}
+		};
 
 	}
 
-	$insta = new Instagram(\Arr::get($config, 'token'), \Arr::get($config, 'count', 30)); 
+	public function fetch( $url ) {
+
+		try {
+
+			$last_modified = filemtime( DOCROOT . '/data/instagram.json' );
+
+			if ( time() - $last_modified < ( 60 * 5 ) ) {
+
+				$result = file_get_contents( DOCROOT . '/data/instagram.json' );
+
+				return $result;
+
+			}
+
+		} catch ( Exception $e ) {
+		};
+
+		$ch = curl_init();
+		curl_setopt( $ch, CURLOPT_URL, $url );
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt( $ch, CURLOPT_TIMEOUT, 20 );
+		$result = curl_exec( $ch );
+		curl_close( $ch );
+
+		file_put_contents( DOCROOT . '/data/instagram.json', $result );
+
+		return $result;
+
+	}
+
+}
+
+$insta = new Instagram( \Arr::get( $config, 'token' ), \Arr::get( $config, 'count', 30 ) );
 
 ?>
 
 <div class="instagram">
 
-	<? if(!$insta->error) :?>
-		
+	<? if ( ! $insta->error ) : ?>
+
 		<div class="instagram__slider">
-		    <div class="inner-slider">
-               <? $i = 0;?>
-                <? foreach ($insta->result as $photo) :?>
+			<div class="inner-slider">
+				<? $i = 0; ?>
+				<? foreach ( $insta->result as $photo ) : ?>
 
-                    <? if($i % 5 === 0) :?>
+				<? if ( $i % 5 === 0 ) : ?>
 
-                        <? if($i != 0) :?>
+				<? if ( $i != 0 ) : ?>
 
-                            </div>
+			</div>
 
-                        <? endif;?>
+			<? endif; ?>
 
-                        <div class="instagram__block instagram__large">
+			<div class="instagram__block instagram__large">
 
-                    <? endif;?>
-                    
-                    <? if($i === 7 || $i === 19) :?>
-                    
-                        <a href="<?= $social['instagram'];?>" target="_blank" title="<?= $sitename;?>" class="instagram__link">
+				<? endif; ?>
+
+				<? if ( $i % 5 === 0 ) {
+					$src = $photo->images->standard_resolution;
+				} else {
+					$src = $photo->images->low_resolution;
+				} ?>
+
+				<? if ( $i === 7 || $i === 19 ) : ?>
+
+					<a href="<?= $social['instagram']; ?>" target="_blank" title="<?= $sitename; ?>" class="instagram__link">
+
+						<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
                             <span class="instagram__link--content">
-                                <span><?= \Arr::get($config, 'title', '#youngs_r7'); ?></span>
+	                            <span class="instagram__link--content--inner">
+		                            <p>
+			                            instagram<br/>
+			                            <?= \Arr::get( $config, 'title', '#youngs_r7' ); ?>
+		                            </p>
+	                                <p class="follow">Follow</p>
+	                            </span>
                             </span>
-                            <span class="instagram__button">Follow</span>
-                        </a>
-                    
-                    <? else :?>
-                    
-                    <? if($i % 5 === 0) {                     
-                        $src = $photo->images->standard_resolution;         
-                    } else {        
-                        $src = $photo->images->low_resolution;        
-                    } ?>
-                    
-                    <a href="<?= $photo->link;?>" target="_blank" title="<?= $photo->caption->text;?>">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url;?>" alt="<?= $sitename; ?>" height="<?=$src->height;?>" width="<?=$src->width;?>">                
-                    </a>
-                    
-                    <? endif;?>
-                    <? if($i % 5 === 0) :?>
+					</a>
 
-                        </div>
-                        <div class="instagram__block instagram__small">
+				<? else : ?>
 
-                    <? endif;?>
+					<a href="<?= $photo->link; ?>" target="_blank" title="<?= $photo->caption->text; ?>">
+						<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
+					</a>
 
-                <? $i++;?>
-                <? endforeach;?>		        
-		    </div>		    
+				<? endif; ?>
+				<? if ( $i % 5 === 0 ) : ?>
+
+			</div>
+			<div class="instagram__block instagram__small">
+
+				<? endif; ?>
+
+				<? $i ++; ?>
+				<? endforeach; ?>
+			</div>
 		</div>
-		
-	<? else :?>
-    
-    <div class="centre-wrap">
-		
-        <p><?= $insta->error; ?></p>
-        
-    </div>
 
-	<? endif;?>
+	<? else : ?>
 
-</div> 
+		<div class="centre-wrap">
+
+			<p><?= $insta->error; ?></p>
+
+		</div>
+
+	<? endif; ?>
+
+</div>
 
 </div>
