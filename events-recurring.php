@@ -24,7 +24,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
     <div class="centre-wrap centre-wrap--centred centre-wrap--no">
        
         <h1 class="banner">
-            <?= \Arr::get($config, 'title', 'Events');?>
+            <span><?= \Arr::get($config, 'title', 'Events');?></span>
         </h1>
         
         <p class="larger"><?= \Arr::get($config, 'subtitle');?></p>

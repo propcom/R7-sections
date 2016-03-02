@@ -79,7 +79,6 @@
             
             li {
                 
-                font-family: $secondaryFont;
                 display: inline-block;
                 
                 @include mq($mq-mob--lrg) {
@@ -447,7 +446,6 @@
         span {
             
             text-transform: uppercase;
-            font-family: $secondaryFont;
             color: $primaryFontColor;
             font-style: normal;
             
@@ -502,7 +500,6 @@
         span {
 
             text-transform: uppercase;
-            font-family: $secondaryFont;
             color: $primaryFontColor;
             font-style: normal;
 
@@ -672,10 +669,5 @@
 
     }
     
-    &__start {
-        
-        font-family: $secondaryFont;
-        
-    }
     
 }

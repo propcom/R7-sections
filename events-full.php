@@ -26,7 +26,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
         <? if(\Arr::get($config, 'title')) : ?>
 
             <h1 class="banner">
-                <?= \Arr::get($config, 'title');?>
+                <span><?= \Arr::get($config, 'title');?></span>
             </h1>
 
         <? endif ?>

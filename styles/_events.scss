@@ -314,7 +314,7 @@
         
         p {
             
-            color: $tertiaryFontColor;
+            color: $primaryFontColor;
             font-style: italic;
             @include font-size(47);
             text-align: center;
@@ -342,7 +342,7 @@
             
             .geronimo & {
 
-                color: $secondaryFontColor;
+                color: $primaryFontColor;
 
             }
             

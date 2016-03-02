@@ -14,7 +14,7 @@
     
     <div class="center-wrap">
         <h1 class="banner">
-            Gallery
+            <span>Gallery</span>
         </h1>
     </div>
 
