@@ -1,17 +1,12 @@
 .twitter {
-    
+        
+    display: inline-block;
     padding: 40px 0;
     width: 100%;
     
     background: $primaryColor;
     color: $secondaryFontColor;
-    
-    .geronimo & {
-        
-        background: $tertiaryColor;
-        
-    }
-    
+
     a {
         
         color: $secondaryFontColor;
