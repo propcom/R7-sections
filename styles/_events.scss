@@ -266,6 +266,7 @@
         float: right;
         padding-top: 15px;
         padding-left: 10px;
+        @include font-size($p-size);
         
         .button__button {
             

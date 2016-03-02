@@ -12,9 +12,11 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
 
     <div class="centre-wrap centre-wrap--centred centre-wrap--no">
 
-        <h3 class="banner">
-            <span><?= \Arr::get($config, 'title', 'Events');?></span>
-        </h3>
+        <header>
+            <h1 class="banner">
+                <span><?= \Arr::get($config, 'title', 'Events');?></span>
+            </h1>
+        </header>
 
         <? if($events) :?>
             <div class="events__slider<?= count($events) > 4 ? ' draggable' : '';?>">

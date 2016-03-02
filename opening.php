@@ -24,7 +24,7 @@
 
 				        <?php foreach ($opening as $key => $times): ?>
 				        		
-				        	<li><?= $key;?> <?=$times?></li>
+				        	<li><?= $key;?>: <?=$times?></li>
 
 				        <?php endforeach ?>
 
@@ -48,7 +48,7 @@
 
 				        <?php foreach ($opening as $key => $times): ?>
 				        		
-				        	<li><?= $key;?> <?=$times?></li>
+				        	<li><?= $key;?>: <?=$times?></li>
 
 				        <?php endforeach ?>
 

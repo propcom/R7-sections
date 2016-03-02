@@ -38,6 +38,13 @@
             margin-bottom: 20px;
             
         }
+
+        p {
+            display: block;
+            margin: 0 auto 15px auto;
+            @include font-size(16);
+            width: 80%;
+        }
         
         @include mq($mq-tab) {
          

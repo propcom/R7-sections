@@ -46,7 +46,6 @@
     
     &__slider {
         
-        display: none;
         background: $primaryColor;
         
         &.active {
@@ -96,78 +95,73 @@
             
         }
         
-        @include mq($mq-mob--lrg) {
-            
-//            display: none;
-            
-        }
-        
     }
-    
-        &__img {
-            
-            float: left;
-            width: 50%;
-            margin: 0 0 13px 0;
-            padding: 0 10px;
 
-            &:nth-child(3) {
-                clear: left;
-            }
+    &__img {
+        
+        float: left;
+        width: 50%;
+        margin: 0 0 13px 0;
+        padding: 0 10px;
+        cursor: pointer;
 
-            &--large {
-
-                width: 50%;
-                overflow: hidden;
-
-                @include mq(500px) {
-                    width: 100%;
-                }
-
-                &--right {
-                    float: right;
-                }
-
-                &--left {
-                    clear: left;
-                    float: left;
-                }
-
-            }
-
-            img {
-
-                @include opacity(0);
-                @include transition(all 1s);
-
-                &.show {
-                    @include opacity(1);    
-                }
-
-            }
-
-            &--bg {
-                padding: 0 10px;
-
-                &__img {
-                    display: block;
-                    padding-bottom: 60%;
-                    background-size: cover;
-                    background-position: center;
-                }
-
-            }
-
+        &:nth-child(3) {
+            clear: left;
         }
 
-        &__section {
+        &--large {
 
-            float: left;
             width: 50%;
+            overflow: hidden;
 
             @include mq(500px) {
                 width: 100%;
             }
+
+            &--right {
+                float: right;
+            }
+
+            &--left {
+                clear: left;
+                float: left;
+            }
+
         }
+
+        img {
+
+            @include opacity(0);
+            @include transition(all 1s);
+
+            &.show {
+                @include opacity(1);    
+            }
+
+        }
+
+        &--bg {
+            padding: 0 10px;
+
+            &__img {
+                display: block;
+                padding-bottom: 60%;
+                background-size: cover;
+                background-position: center;
+            }
+
+        }
+
+    }
+
+    &__section {
+
+        float: left;
+        width: 50%;
+
+        @include mq(500px) {
+            width: 100%;
+        }
+    }
     
 }

@@ -53,6 +53,10 @@
         position: absolute;
         top: 0;
         left: 0;
+
+        p {
+            @include font-size(16);
+        }
         
         &:first-child {
             
@@ -91,7 +95,7 @@
         color: $secondaryFontColor;
         text-decoration: none!important;
         
-        @include font-size($hecto-size);
+        @include font-size(60);
         
         &[data-direction="next"] {
             
