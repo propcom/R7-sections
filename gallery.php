@@ -12,7 +12,7 @@
 
 <section class="gallery">
     
-    <div class="center-wrap">
+    <div class="centre-wrap centre-wrap--centred">
         <h1 class="banner">
             <span>Gallery</span>
         </h1>
