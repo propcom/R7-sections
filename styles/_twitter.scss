@@ -67,13 +67,17 @@
             
         }
         
-        &:before {
+        &__link {
+
+            &:before {
             
-            font-family: $fonticon;
-            content: 't';
-            display: inline-block;
-            @include font-size(20);
-            margin-bottom: 20px;
+                font-family: $fonticon;
+                content: 't';
+                display: inline-block;
+                @include font-size(20);
+                margin-bottom: 20px;
+                
+            }
             
         }
         
