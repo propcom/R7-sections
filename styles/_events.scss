@@ -1,10 +1,14 @@
 .events {
     
     padding: 40px 0;
+    margin-top: 30px;
     width: 100%;
     overflow: hidden;
     
     &--full {
+
+        margin: 0 auto;
+        padding-top: 0;
         
         h3 {
             
@@ -80,7 +84,6 @@
             
             li {
                 
-                font-family: $secondaryFont;
                 display: inline-block;
                 
                 @include mq($mq-mob--lrg) {
@@ -240,6 +243,10 @@
             height: auto;
             
         }
+
+        &--past {
+            @include opacity(0.5);
+        }
         
     }
     
@@ -259,6 +266,7 @@
         float: right;
         padding-top: 15px;
         padding-left: 10px;
+        @include font-size($p-size);
         
         .button__button {
             
@@ -306,7 +314,7 @@
         
         p {
             
-            color: $tertiaryFontColor;
+            color: $primaryFontColor;
             font-style: italic;
             @include font-size(47);
             text-align: center;
@@ -327,7 +335,6 @@
         span {
             
             text-transform: uppercase;
-            font-family: $secondaryFont;
             color: $primaryFontColor;
             font-style: normal;
             
@@ -335,7 +342,7 @@
             
             .geronimo & {
 
-                color: $secondaryFontColor;
+                color: $primaryFontColor;
 
             }
             
@@ -429,11 +436,6 @@
         }
         
     }
-    
-    &__start {
-        
-        font-family: $secondaryFont;
-        
-    }
+
     
 }

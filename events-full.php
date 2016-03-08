@@ -22,10 +22,14 @@ $events = $calendar->get_events($event_month, 'last day of this month');
 <div class="events events--full">
     
     <div class="centre-wrap centre-wrap--centred centre-wrap--no">
-       
-        <h3 class="banner">
-            <span><?= \Arr::get($config, 'title', 'Events');?></span>
-        </h3>
+        
+        <? if(\Arr::get($config, 'title')) : ?>
+
+            <h1 class="banner">
+                <span><?= \Arr::get($config, 'title');?></span>
+            </h1>
+
+        <? endif ?>
         
         <p class="larger"><?= \Arr::get($config, 'subtitle');?></p>
         
@@ -38,11 +42,18 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                     <? endfor; ?>                    
                 </ul>                
             </div>
+
+        <? $todaysDate = time();?>
+        
         <? if($events) :?>    
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):?>
-                    <div class="events__entry" id="<?= $event->id;?>">
-                        <? $date = strtotime($event->date_start);?>
+
+
+                    <? $date = strtotime($event->date_start);?>
+                    
+                    <div class="events__entry  <? if($date < $todaysDate) : ?> events__entry--past <? endif ?>" id="<?= $event->id;?>">
+                        
 
                         <? if($event->image_id) :?>
                             <div class="events__img">
@@ -64,6 +75,7 @@ $events = $calendar->get_events($event_month, 'last day of this month');
                             <div class="events__date" id="<?= date('d', $date);?>">
                                 <span><?= date('F', $date);?></span>
                                 <p><?= date('d', $date);?></p>
+                                <span><?= date('Y', $date);?></span>
                             </div>
                             <div class="events__title">
                                 <h5><?= $event->name;?></h5>

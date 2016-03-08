@@ -1,17 +1,12 @@
 .twitter {
-    
+        
+    display: inline-block;
     padding: 40px 0;
     width: 100%;
     
     background: $primaryColor;
     color: $secondaryFontColor;
-    
-    .geronimo & {
-        
-        background: $tertiaryColor;
-        
-    }
-    
+
     a {
         
         color: $secondaryFontColor;
@@ -53,6 +48,10 @@
         position: absolute;
         top: 0;
         left: 0;
+
+        p {
+            @include font-size(16);
+        }
         
         &:first-child {
             
@@ -68,13 +67,17 @@
             
         }
         
-        &:before {
+        &__link {
+
+            &:before {
             
-            font-family: $fonticon;
-            content: 't';
-            display: inline-block;
-            @include font-size(20);
-            margin-bottom: 20px;
+                font-family: $fonticon;
+                content: 't';
+                display: inline-block;
+                @include font-size(20);
+                margin-bottom: 20px;
+                
+            }
             
         }
         
@@ -91,7 +94,7 @@
         color: $secondaryFontColor;
         text-decoration: none!important;
         
-        @include font-size($hecto-size);
+        @include font-size(60);
         
         &[data-direction="next"] {
             

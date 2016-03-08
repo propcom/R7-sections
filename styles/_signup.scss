@@ -7,11 +7,12 @@
         
         width: 100%;
         overflow: hidden;
-        padding: 40px 0 80px 0;
+        padding: 5px 0;
         
-        background: url(../img/regions/signup/signup-bg.jpg) no-repeat center;
+        background: url(../img/regions/signup/signup-bg.png) center $quaternaryColor;
+
+        box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.35) inset, 1px -3px 10px rgba(0, 0, 0, 0.35) inset;
         
-        background-size: cover;
         
     }
     
@@ -54,7 +55,6 @@
     
     &__wrapper {
         
-        border: 4px solid $secondaryFontColor;
         padding: 30px 35px;
         
         @include mq($mq-mob--lrg) {
@@ -85,10 +85,10 @@
         
         &.terms {
 
-            @include font-size(12);
+            @include font-size(16);
             margin-bottom: 0;
             float: left;
-            font-family: $secondaryFont;
+            font-family: $primaryFont;
             width: 100%;
             padding-top: 10px;
             
@@ -110,10 +110,10 @@
     
     .field-wrap {
         
-        @include width(3, 2%);
+        @include width(4, 2%);
         float: left;
         
-        @include mq($mq-mob--lrg) {
+        @include mq(950px) {
             
             @include width(1, 0%);
             margin-bottom: 20px;
@@ -130,7 +130,22 @@
     input[type="submit"] {
         
         position: relative;
-        bottom: -60px;
+        float: right;
+        height: 49px;
+        padding-top: 2px;
+        line-height: 30px;
+
+        @include width(4, 2%);
+
+        @include mq(950px) {
+            display: block;
+            margin: 0 auto 0 auto;
+            float: none;
+
+            &.last {
+                margin-right: auto;
+            }
+        }
         
     }
     

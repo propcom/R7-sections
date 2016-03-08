@@ -27,27 +27,23 @@
         @include width(3, 5%);
         float: left;
         border: 3px solid $primaryColor;
-        padding: 30px 70px 70px 70px;
+        padding: 10px 10px 50px 10px;
         position: relative;
         
         display: block;
-        
-        .geronimo & {
-            
-            border: 3px solid $secondaryColor;
-            
-        }
+    
         
         img {
             
             margin-bottom: 20px;
             
         }
-        
-        @include mq(1180px) {
-         
-            padding: 30px 30px 70px 30px;
-            
+
+        p {
+            display: block;
+            margin: 0 auto 15px auto;
+            @include font-size(16);
+            width: 80%;
         }
         
         @include mq($mq-tab) {
@@ -91,7 +87,7 @@
         background: $primaryColor;
         color: $secondaryFontColor;
         
-        font-family: $secondaryFont;
+        font-family: $primaryFont;
         text-transform: uppercase;
         width: 50%;
         position: absolute;
@@ -110,14 +106,7 @@
             text-decoration: none;
             
         }
-        
-        .geronimo & {
-            
-            background: $secondaryColor;
-            color: $primaryFontColor;
-            
-        }
-        
+
     }
     
 }

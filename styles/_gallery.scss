@@ -1,6 +1,9 @@
 .gallery {
     
+    margin-top: 30px;
     padding: 40px 0;
+    text-align: center;
+    overflow: hidden;
     
     h3 {
         
@@ -43,7 +46,6 @@
     
     &__slider {
         
-        display: none;
         background: $primaryColor;
         
         &.active {
@@ -93,68 +95,73 @@
             
         }
         
-        @include mq($mq-mob--lrg) {
-            
-//            display: none;
-            
-        }
-        
     }
-    
+
     &__img {
         
         float: left;
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 2%;
-        @include width(3, 2%);
-        
-        background: $primaryColor;
-                
-        @include mq($mq-mob) {
-            
-            @include width(1, 0%);
-            margin-bottom: 10px;
-            
+        width: 50%;
+        margin: 0 0 13px 0;
+        padding: 0 10px;
+        cursor: pointer;
+
+        &:nth-child(3) {
+            clear: left;
         }
-        
-        &:hover {
-                
-            cursor: pointer;
+
+        &--large {
+
+            width: 50%;
+            overflow: hidden;
+
+            @include mq(500px) {
+                width: 100%;
+            }
+
+            &--right {
+                float: right;
+            }
+
+            &--left {
+                clear: left;
+                float: left;
+            }
 
         }
-        
-        &:after {
-            
-            content: '';
-            padding-top: 60%;
-            display: block;
-            
-            
-        }
-        
+
         img {
-            
-            position: absolute;
-            width: 150%;
-            height: auto;
-            top: 50%;
-            left: 50%;
-            
-            -webkit-transform: translateX(-50%) translateY(-50%);
-                -ms-transform: translateX(-50%) translateY(-50%);
-                    transform: translateX(-50%) translateY(-50%);
-            
-            .lt-ie9 & {
-                
-                top: 0;
-                left: 0;
-                
+
+            @include opacity(0);
+            @include transition(all 1s);
+
+            &.show {
+                @include opacity(1);    
             }
-            
-            
+
         }
-        
+
+        &--bg {
+            padding: 0 10px;
+
+            &__img {
+                display: block;
+                padding-bottom: 60%;
+                background-size: cover;
+                background-position: center;
+            }
+
+        }
+
+    }
+
+    &__section {
+
+        float: left;
+        width: 50%;
+
+        @include mq(500px) {
+            width: 100%;
+        }
     }
     
 }
