@@ -21,12 +21,12 @@
         padding: 15px;
         margin-bottom: 2%;
         background: transparent;
-        border-color: $quniaryColor;
-        color: $quniaryColor;
+        border-color: $quinaryColor;
+        color: $quinaryColor;
 
         &.active,
         &:hover {
-            background: $quniaryColor;
+            background: $quinaryColor;
             color: $white;
         }
         
@@ -67,7 +67,7 @@
                 width: 100%;
                 bottom: 50px;
                 left: 0;
-                color: $quniaryColor;
+                color: $quinaryColor;
                 font-family: $fonticon !important;
                 font-style: normal !important;
                 font-weight: normal !important;
@@ -157,7 +157,7 @@
     
     h3 {
         
-        border-bottom: 5px solid $quniaryColor;
+        border-bottom: 5px solid $quinaryColor;
         padding-bottom: 10px;
         margin-bottom: 25px;
         padding-top: 20px;
