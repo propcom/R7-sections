@@ -31,7 +31,7 @@ $userTimeline = $t->userTimeline(USER, MAXIMUM_ROWS);
 
                             <div class="twitter__slide">
 
-                                <a href="http://<?= \Arr::get($config, 'user', 'propellercomms') ?>" class="twitter__slide__link" target="_blank"></a>
+                                <a href="http://twitter.com/<?= \Arr::get($config, 'user', 'propellercomms') ?>" class="twitter__slide__link" target="_blank"></a>
 
                                 <p><?= twitter::convertLinks($tweet->text); ?></p>
 
