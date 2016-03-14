@@ -114,7 +114,7 @@ $insta = new Instagram( \Arr::get( $config, 'token' ), \Arr::get( $config, 'coun
 
 				<? else : ?>
 
-					<a href="<?= $photo->link; ?>" target="_blank" title="<?= $photo->caption->text; ?>">
+					<a href="<?= $photo->link; ?>" target="_blank" title="<? if(!empty($photo->caption->text)): echo $photo->caption->text; endif; ?>">
 						<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
 					</a>
 
