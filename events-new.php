@@ -1,27 +1,23 @@
 <?
-require_once '/var/www/shared/5.3/autoloader.php';
-Shared_Autoloader::forge()->setVersion('v1')->register();
+	require_once '/var/www/shared/5.3/autoloader.php';
+	Shared_Autoloader::forge()->setVersion( 'v1' )->register();
 
-$calendar_id = \Arr::get($config, 'calendar');
-$calendar = \Prop\CP\Events\Calendar::forge($siteid, $calendar_id);
-if(isset($_GET['month']) && $_GET['month']=='Feb')		// february has an issue ref http://stackoverflow.com/questions/9058523/php-date-and-strtotime-return-wrong-months-on-31st
-{
-	$get_month = date('M',strtotime('01 Feb'));
-	$event_month = (isset($_GET['month']) ? date('M Y', strtotime('01 Feb')) : date('M Y'));
-}
-else{
-	$get_month = (isset($_GET['month']) ? date('M', strtotime($_GET['month'])) : date('M'));
-	$event_month = (isset($_GET['month']) ? date('M Y', strtotime($_GET['month'])) : date('M Y'));
-}
+	$calendar_id = \Arr::get( $config, 'calendar' );
+	$calendar    = \Prop\CP\Events\Calendar::forge( $siteid, $calendar_id );
 
+	$get_month   = ( isset( $_GET['month'] ) ? date( 'M', strtotime( $_GET['month'], strtotime( 'first day of this month' ) ) ) : date( 'M' ) );
+	$event_month = ( isset( $_GET['month'] ) ? date( 'd M Y', strtotime( $_GET['month'], strtotime( 'first day of this month' ) ) ) : date( 'M Y' ) );
 
-if(time() > strtotime('+1 month', strtotime($event_month))) {
+	$month_days = cal_days_in_month( CAL_GREGORIAN, ( date( 'n', strtotime( $event_month ) ) ), ( date( 'Y', strtotime( $event_month ) ) ) );
 
-    $event_month = date('M Y', strtotime('+1 year', strtotime($event_month)));
+	if ( time() > strtotime( '+' . $month_days . 'days', strtotime( $event_month ) ) ) {
 
-}
+		$event_month = date( 'M Y', strtotime( '+1 year', strtotime( $event_month ) ) );
 
-$events = $calendar->get_events($event_month, 'last day of this month', 50);
+	}
+
+	$events = $calendar->get_events( $event_month, 'last day of this month' );
+
 ?>
 
 <div class="events events--full">
