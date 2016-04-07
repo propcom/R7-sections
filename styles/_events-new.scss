@@ -79,6 +79,7 @@
             
             li {
                 
+                font-family: $secondaryFont;
                 display: inline-block;
                 
                 @include mq($mq-mob--lrg) {
@@ -95,6 +96,8 @@
                     &.active {
                         
                         text-decoration: underline;
+                        font-weight: 600;
+                        @include font-size(20);
                         
                     }
                     
@@ -181,7 +184,7 @@
         
     }
     
-    &__full-info2 {
+    &__full-info {
         
         float: left;
         width: 100%;
@@ -207,64 +210,11 @@
             
         }
         
-        .events__title {
-            
-            width: 80%;
-            padding-left: 10px;
-            
-            @include mq($mq-mob--lrg) {
-            
-                width: 73%;
-
-            }
-                        
-        }
-        
     }
     
-    &__full-info3 {
 
-        float: left;
-        width: 60%;
-        padding-left: 20px;
-        text-align: left;
-
-        @include mq($mq-mob--lrg) {
-
-            width: 100%;
-            padding-left: 0px;
-
-        }
-
-        .events__date {
-
-            width: 25%;
-            border-right: 1px solid $white;
-
-            @include mq($mq-mob--lrg) {
-
-                width: 25%;
-
-            }         
-
-        }
-
-        .events__title {
-
-            width: 80%;
-            padding-left: 10px;
-
-            @include mq($mq-mob--lrg) {
-
-                width: 73%;
-
-            }
-
-        }
-
-    }
     
-    &__entry2 {
+    &__entry {
        
         width: 23%;
         float: left;
@@ -275,7 +225,19 @@
         overflow: hidden;
         border: 3px solid $primaryColor;
         position: relative;
-        min-height: 1000px;
+        min-height: 700px;
+        
+        @include mq(1000px) {
+            width: 48%;
+            min-height: 685px;
+        }
+        
+        @include mq(600px) {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            float: none;
+        }
         
         img {
             
@@ -285,9 +247,13 @@
             
         }
         
+        &__past {
+            opacity: 0.4;
+        }
+        
     }    
 
-    &__button2 {
+    &__button {
         width: 15%;
         background: $tertiaryColor;
         color: $secondaryColor;
@@ -305,6 +271,9 @@
         }
         &__back {
             width: 10%;
+            @include mq(600px) {
+                width: 20%;
+            }
             background: $tertiaryColor;
             color: $secondaryColor;
             height: 30px;
@@ -314,13 +283,14 @@
             @include font-size(12);
             margin-bottom: 25px;
             a {
+                display: block;
                 text-transform: uppercase;
                 color: $secondaryColor;
             }
         }
     }
     
-    &__content2 {
+    &__content {
         
         width: 100%;
         text-align: left;
@@ -333,28 +303,18 @@
         
         .button__button {
             
-            float: right;
-            padding: 10px 0;
-            margin-left: 20px;
-            width: 150px;
-            text-align: center;
-            @include font-size(16);
-            line-height: normal;
-            
-            @include mq($mq-tab) {
-                
-                margin-bottom: 20px;
-                
-            }
-            
-            @include mq($mq-mob--lrg) {
-            
-                margin: 0;
-                
-                @include width(2, 2%);
-                float: left;
+            position: absolute;
+            bottom: 0;
+            display: block;
+            margin: 0;
+            left: 5%;
 
-            }
+            width: 90%;
+            background: $primaryColor;
+            color: $secondaryFontColor;
+            height: 50px;
+
+            text-align: center;
             
         }
         
@@ -366,54 +326,9 @@
         }
         
     }
+
     
-    &__content3 {
-
-        width: 100%;
-        text-align: left;
-        clear: both;
-        float: right;
-        padding-top: 15px;
-        padding-left: 0;
-        margin-top: 10px;
-        border-top: 1px solid $white;
-
-        .button__button {
-
-            float: right;
-            padding: 10px 0;
-            width: 150px;
-            text-align: center;
-            @include font-size(16);
-            line-height: normal;
-
-            @include mq($mq-tab) {
-
-                margin-bottom: 20px;
-
-            }
-
-            @include mq($mq-mob--lrg) {
-
-                margin: 0;
-
-                @include width(2, 2%);
-                float: left;
-
-            }
-
-        }
-
-        @include mq($mq-mob--lrg) {
-
-            width: 100%;
-            padding: 20px 0 0 0;
-
-        }
-
-    }
-    
-    &__date2 {
+    &__date {
         
         float: left;
         width: 35%;
@@ -446,6 +361,7 @@
         span {
             
             text-transform: uppercase;
+            font-family: $secondaryFont;
             color: $primaryFontColor;
             font-style: normal;
             
@@ -466,62 +382,9 @@
         }
         
     }
+
     
-    &__date3 {
-
-        float: left;
-        width: 15%;
-        margin-right: 10%;
-        padding: 0;
-        border-right: 1px solid $white;
-        text-align: left;
-        margin-top: 5px;
-
-        p {
-
-            color: $tertiaryColor;
-            font-style: italic;
-            @include font-size(40);
-            text-align: left;
-            line-height:50px;
-            margin: 0;
-            position: relative;
-            top: -5px;
-
-            .geronimo & {
-
-                color: $tertiaryColor;
-                font-style: normal;
-
-            }
-
-        }
-
-        span {
-
-            text-transform: uppercase;
-            color: $primaryFontColor;
-            font-style: normal;
-
-            @include font-size($milli-size);
-
-            .geronimo & {
-
-                color: $white;
-
-            }
-
-        }
-
-        @include mq($mq-mob--lrg) {
-
-            width: 35%;
-
-        }
-
-    }
-    
-    &__title2 {
+    &__title {
         
         float: left;
         width: 55%;
@@ -540,18 +403,22 @@
         }
         
         h5 {
+            padding-top: 5px;
             font-style: italic;
-            @include font-size(16);
+            @include font-size(14);
         }
         
     }
     
-    &__img2 {
+
+    
+    &__img {
         
         float: left;        
         background: $primaryColor;
         position: relative;
         width: 100%;
+        height: 300px;
         overflow: hidden;
             
         &:after {
@@ -566,7 +433,7 @@
         img {
             
             position: absolute;
-            width: 150%;
+            width: 100%;
             height: auto;
             top: 50%;
             left: 50%;
@@ -607,67 +474,22 @@
         
     }
     
-    &__img3 {
-
-        float: left;        
-        background: $secondaryColor;
-        position: relative;
-        width: 40%;
-        overflow: hidden;
-        border: 4px solid $white;
-
-        &:after {
-
-            content: '';
-            padding-top: 70%;
-            display: block;
-
-
-        }
-
-        img {
-
-            position: absolute;
-            width: 100%;
-            height: auto;
-            top: 50%;
-            left: 50%;
-
-            -webkit-transform: translateX(-50%) translateY(-50%);
-            -ms-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
-
-            .lt-ie9 & {
-
-                top: 0;
-                left: 0;
-                width: 101%;
-
-            }
-
-            &.fit {
-
-                top: 0;
-                left: 0;
-                width: 100%;
-
-                -webkit-transform: translateX(0%) translateY(-0%);
-                -ms-transform: translateX(0%) translateY(-0%);
-                transform: translateX(0%) translateY(-0%);
-
-            }
-
-
-        }
-
-        @include mq($mq-mob--lrg) {
-
-            width: 100%;
-            margin-bottom: 20px;
-
-        }
-
+    
+    &__start {
+        
+        font-family: $secondaryFont;
+        
     }
     
-    
+}
+
+.geronimo .button__button--small {
+    @include mq(700px) {
+        right: 0 !important;
+        padding-top: 5px !important;
+        font-size: 12px !important;
+    }
+    @include mq(600px) {
+        width: 30% !important;
+    }
 }
