@@ -8,55 +8,35 @@
 		        <h3 class="banner">
 		            <span>Opening Times</span>
 		        </h3>   
-		    </div>     
+		    </div>
+
+		    <?php foreach($config as $key => $data): ?>
 
 	        <div class="opening__col">
 		
-		        <p class="text-upper">
-		        	Opening Hours
-		        </p>
+			        <p class="text-upper">
+			        	<?= $key ?>
+			        </p>
 
-		        <ul>
+			        <ul>
 
-			        <? if (isset($config['opening-times'])) : ?>
+				        <? if (isset($config[$key])) : ?>
 
-			        	<? $opening = $config['opening-times'];  ?>
+				        	<? $opening = $config[$key];  ?>
 
-				        <?php foreach ($opening as $key => $times): ?>
-				        		
-				        	<li><?= $key;?>: <?=$times?></li>
+					        <?php foreach ($opening as $key => $times): ?>
+					        		
+					        	<li><?= $key;?>: <?=$times?></li>
 
-				        <?php endforeach ?>
+					        <?php endforeach ?>
 
-				    <? endif ?>
+					    <? endif ?>
 
-				</ul>
+					</ul>
 
-			</div>
+				</div>
 
-			<div class="opening__col">
-		        
-		        <p class="text-upper">
-		        	Food Service Hours
-		        </p>
-
-		        <ul>
-
-			        <? if (isset($config['food-times'])) : ?>
-
-			        	<? $opening = $config['food-times'];  ?>
-
-				        <?php foreach ($opening as $key => $times): ?>
-				        		
-				        	<li><?= $key;?>: <?=$times?></li>
-
-				        <?php endforeach ?>
-
-				    <? endif ?>
-
-				</ul>
-			
-			</div>
+			<?php endforeach; ?>
 
 		</div>
 		
