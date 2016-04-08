@@ -23,6 +23,9 @@
 				@media screen and (min-width: 500px) and (max-height: 550px){
 					transform: translate(-50%, -25%);
 				}
+                @include mq($mq-mob){
+                    transform: translate(-50%, -45%);
+                }
 			}
 
 			.book__wrapper {
@@ -56,7 +59,7 @@
 			width: 100%;
 			margin: 0 auto;
 			border: 0;
-			padding: 0 0 20px 0;
+			padding: 0;
 
 			h1 {
 				display: none;
@@ -88,8 +91,11 @@
 				border-radius: 0;
 
 				@include mq($mq-mob){
-					height: 35px;
+					height: 28px;
 				}
+                @media screen and (min-width: 400px) and (max-height: 600px){
+                    height: 28px;
+                }
 			}
 
 			label {
@@ -116,12 +122,18 @@
 				bottom: 0;
 			    left: 0;
 			    right: 0;
-			    margin: auto;
 			    height: 45px;
 			    font-family: $primaryFont;
 			    @include font-size(16);
 			    font-weight: bold;
 			    text-shadow: none;
+
+                @include mq($mq-mob){
+                    height: 30px;
+                }
+                @media screen and (min-width: 400px) and (max-height: 600px){
+                    height: 30px;
+                }
 			}
 
 		}
