@@ -9,7 +9,13 @@
         	<a href="" class="js-toggle-dmn  book__close">X</a>
                         
             <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
-            
+
+            <? foreach ($analytics as $tracking_code): ?>
+                <script>
+                    DMN.val('ga_account', '<?= $tracking_code; ?>');
+                </script>
+            <? endforeach; ?>
+
         </div>
     
     </div>
