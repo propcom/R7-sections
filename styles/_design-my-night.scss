@@ -12,7 +12,15 @@
 			z-index: 100;
 			padding: 20px 0;
 			-webkit-backdrop-filter: blur(15px);
-			@include rgba('background-color', rgba($black, 0.6), $black);
+			@include rgba('background-color', rgba($black, 0.9), $black);
+			overflow: auto;
+
+			.centre-wrap--centred {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
 
 			.book__wrapper {
 				position: relative;
