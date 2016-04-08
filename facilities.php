@@ -57,7 +57,7 @@
                             
                             <? if(isset($config['button'])) :?>
                             <div class="facilities__buttons">
-                                <a class="js-scroll  button__button" href="<?= \Arr::get($config, 'button', '#enquire');?>">Hire Enquiry</a>
+                                <a class="<?= \Arr::get($config, 'button-class', 'js-scroll');?>  button__button" href="<?= \Arr::get($config, 'button', '#enquire');?>">Hire Enquiry</a>
                             </div>
                             <? endif;?>
                         </div>
