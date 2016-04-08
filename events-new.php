@@ -35,7 +35,7 @@
             <? foreach($events as $date => $date_events):?>                    
                 <? foreach($date_events as $event):
                     	$date = strtotime($event->date_start);
-                    	$pastDate = $date < time() ? 'events__entry__past' : '';  
+                    	$pastDate = $date < time() ? 'events__entry--past' : '';  
                 ?>
                     <div class="events__entry events__entry--narrow <?= $pastDate; ?>" id="<?= $event->id;?>">
                         <a href="/event?event=<?= $event->id;?>&date=<?= $event->date_start ?>">
