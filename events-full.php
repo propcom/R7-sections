@@ -20,7 +20,7 @@
 
 ?>
 
-<div class="events events--full">
+<div class="events events--full events--margin">
 
 	<div class="centre-wrap centre-wrap--centred centre-wrap--no">
 
@@ -34,7 +34,7 @@
 
 		<p class="larger"><?= \Arr::get( $config, 'subtitle' ); ?></p>
 
-		<div class="events__full">
+		<div class="events__container events__container--narrow">
 			<div class="events__months">
 				<ul>
 					<? for ( $m = 1; $m <= 12; $m ++ ) : ?>
@@ -73,7 +73,7 @@
 							<? endif; ?>
 
 							<div class="events__full-info">
-								<div class="events__date" id="<?= date( 'd', $date ); ?>">
+								<div class="events__date events__date--small" id="<?= date( 'd', $date ); ?>">
 									<span><?= date( 'F', $date ); ?></span>
 									<p><?= date( 'd', $date ); ?></p>
 									<span><?= date( 'Y', $date ); ?></span>
@@ -92,10 +92,10 @@
 									<? if ( $event->booking_link || $event->more_info_link ) : ?>
 										<div class="events__buttons">
 											<? if ( $event->booking_link ) : ?>
-												<a class="button__button" href="<?= $event->booking_link; ?>" target="_blank">Book</a>
+												<a class="button__button button__button--narrow" href="<?= $event->booking_link; ?>" target="_blank">Book</a>
 											<? endif; ?>
 											<? if ( $event->more_info_link ) : ?>
-												<a class="button__button" href="<?= $event->more_info_link; ?>" target="_blank">Read More</a>
+												<a class="button__button button__button--narrow" href="<?= $event->more_info_link; ?>" target="_blank">Read More</a>
 											<? endif; ?>
 										</div>
 									<? endif; ?>
