@@ -216,7 +216,16 @@
             
             float: left;
             width: 20%;
-            text-align: right;
+            @include mq ($mq-tab--lrg) {width: 30%;}
+            @include mq ($mq-mob--lrg) {width: 50%;}
+            text-align: center;
+
+            p {
+                display: inline-block;
+                width: 32%;
+                margin: 0;
+                padding: 0;
+            }
             
         }
         
@@ -224,7 +233,8 @@
             
             float: left;
             width: 80%;
-
+            @include mq ($mq-tab--lrg) {width: 70%;}
+            @include mq ($mq-mob--lrg) {width: 50%;}
             
             p {
                 
