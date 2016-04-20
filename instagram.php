@@ -142,3 +142,5 @@ $insta = new Instagram( \Arr::get( $config, 'token' ), \Arr::get( $config, 'coun
 	<? endif; ?>
 
 </div>
+
+</div>
