@@ -7,7 +7,10 @@
                 <div class="popup__content">
                     <a href="#" class="popup__close">X</a>
                     <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>" id="dmn-js"></script>
-                </div>
+		   <?php if(Arr::get($config, 'ga_account')):?>
+			<script>DMN.val('ga_account', '<?= Arr::get($config, 'ga_account'); ?>');</script>
+		  <?php endif; ?>
+		</div>
             </div>
         </div>
     </div>
