@@ -10,7 +10,7 @@
 	if ( time() > strtotime('+'.$month_days.'days', strtotime($event_month)) ) {
 		$event_month = date( 'M Y', strtotime( '+1 year', strtotime( $event_month ) ) );
 	}
-	$events = $calendar->get_events( $event_month, 'last day of this month' );
+    $events = $calendar->get_events( $event_month, 'last day of this month', 100 );
 ?>
 <div class="events events--full">
 

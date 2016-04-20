@@ -16,7 +16,7 @@
 
 	}
 
-	$events = $calendar->get_events( $event_month, 'last day of this month' );
+	$events = $calendar->get_events( $event_month, 'last day of this month', 100 );
 
 ?>
 
