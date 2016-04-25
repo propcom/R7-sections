@@ -70,7 +70,48 @@
 
                 <? foreach($menu->categories as $items) : ?>
 
-                    <h3><?= $items['name'];?></h3>
+                    <?
+                        $headers = \Arr::get($items, 'columns');
+                        $dontUseClass = 0;
+
+                        foreach ($headers as $col) {
+                            
+                            if($col != '') {
+
+                                $dontUseClass++;
+
+                            }
+
+                        }
+                    ?>
+
+                    <? if($dontUseClass > 0): ?>
+
+                        <h3 class="menu__title"><?= $items['name'];?></h3>
+
+                        <div class="menu__cols">
+
+                            <? foreach($headers as $header): ?>
+
+                            <? if($header != ''): ?>
+
+                                <span><?= $header; ?></span>
+
+                            <? endif; ?>
+
+                            <? endforeach; ?>
+
+                        </div>
+
+                    <? else: ?>
+
+                        <h3><?= $items['name'];?></h3>
+
+                    <? endif; ?>
+
+                    <div class="clear"></div>
+
+                    <div class="menu__divider"></div>
 
                     <? foreach($items['items'] as $item) :?>
 
@@ -84,10 +125,14 @@
                                 </p>
                             </div>
 
-                            <div class="menu__entry--info">
+                            <div class="menu__entry--info<?= ($dontUseClass > 0) ? '  menu__entry--cols' : '' ?>">
                             <? foreach($item['cells'] as $cell) : ?>
 
-                                <p><?= strip_tags($cell);?></p>
+                                <? if($cell != ''): ?>
+
+                                    <p><?= strip_tags($cell);?></p>
+
+                                <? endif; ?>
 
                             <? endforeach;?>
                             </div>
