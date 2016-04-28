@@ -1,5 +1,5 @@
 .events {
-    
+
     padding: 40px 0;
     width: 100%;
     overflow: hidden;
@@ -7,20 +7,20 @@
     &--margin {
         margin-top:30px;
     }
-    
+
     &--full {
 
         margin: 0 auto;
         padding-top: 0;
-        
+
         h3 {
             margin-bottom: 30px;
         }
-        
+
     }
-        
+
     &__container {
-        
+
         width: 100%;
         overflow: hidden;
         margin: 0 auto;
@@ -28,169 +28,170 @@
         &--narrow {
             max-width: 1000px;
         }
-        
+
     }
-    
+
     &__slider {
-        
+
         padding-top: 45px;
         position: relative;
         width: 100%;
-    
+
     }
-    
+
     &__months {
-        
+
         color: $tertiaryFontColor;
         text-transform: uppercase;
         overflow: hidden;
-        
+
         padding: 20px 100px;
         margin-bottom: 25px;
-        
+
         @include mq($mq-tab) {
-            
+
             padding: 20px;
 
         }
-        
+
         @include mq($mq-mob--lrg) {
-            
+
              padding: 20px 0;
-            
+
         }
-        
+
         ul {
-            
+
             text-align: justify;
             max-height: 20px;
-            
+
             @include mq($mq-mob--lrg) {
-            
+
                 max-height: none;
 
             }
-            
+
             &:after {
-                
+
                 content: '';
                 display: inline-block;
                 width: 100%;
                 height: 0px;
-                
+
                 @include mq($mq-mob--lrg) {
-            
+
                     display: none;
 
                 }
-                
+
             }
-            
+
             li {
-                
+
                 display: inline-block;
-                
+
                 @include mq($mq-mob--lrg) {
-            
+
                     line-height: 40px;
                     @include width(6, 0%);
                     float: left;
                     text-align: center;
 
                 }
-                
+
                 a {
-                    
+
                     &.active {
-                        
+
                         text-decoration: underline;
-                        
+
                     }
-                    
+
                 }
-                
+
             }
-            
+
         }
 
         &--bold {
             ul {
                 li {
                     font-family: $secondaryFont;
-                    
+
                     a.active {
                         font-weight: 600;
                         @include font-size(20);
                     }
                 }
             }
-            
+
         }
     }
-    
+
     &__slide {
-        
+
         @include width(4, 2%);
         float: left;
-        
+
         visibility: hidden;
         position: absolute;
         top: 0;
         left: 0;
-        
+
         &:first-child {
-            position: relative;            
+            position: relative;
         }
-        
+
         &.zRS--slide {
             visibility: visible;
         }
-        
+
         img {
-            width: 100%;
-            height: auto;
+			width: 100%;
+			height: auto;
+			max-height: 280px;
             margin-bottom: 15px;
-            transition: opacity 0.25s;            
-            opacity: 1;   
+            transition: opacity 0.25s;
+            opacity: 1;
         }
-        
+
         img[zRS-src] {
             opacity: 0;
         }
-        
+
     }
-    
+
     &__nav {
-        
+
         display: block;
         position: absolute;
         top: 100px;
         left: -70px;
-        
+
         font-family: $fonticon;
         color: $secondaryFontColor;
-        
+
         @include font-size($hecto-size);
-        
+
         &[data-direction="next"] {
             right: -70px;
             left: auto;
         }
-        
+
         &:hover {
             text-decoration: none;
         }
-        
+
     }
-    
+
     &__info {
-    
+
         width: 100%;
-        
+
     }
-    
+
     &__full-info {
-        
+
         float: left;
         width: 60%;
         padding-left: 20px;
@@ -200,24 +201,24 @@
             padding-left:0;
             margin-top: 2%;
         }
-        
+
         @include mq($mq-mob--lrg) {
             width: 100%;
             padding-left: 0px;
         }
     }
-    
+
     &__entry {
-       
+
         width: 100%;
         clear: both;
         margin-bottom: 25px;
         padding-bottom: 25px;
         overflow: hidden;
         border-bottom: 1px solid $white;
-        
+
         &--narrow {
-            position: relative;            
+            position: relative;
             width: 23%;
             float:left;
 
@@ -233,7 +234,7 @@
                 width: 48%;
                 min-height: 685px;
             }
-            
+
             @include mq(600px) {
                 width: 80%;
                 margin: 0 auto;
@@ -243,31 +244,31 @@
 
         }
 
-        
+
         img {
-            
+
             float: left;
             width: 40%;
             height: auto;
-            
+
         }
 
         &--past {
             @include opacity(0.5);
         }
-        
+
     }
-    
+
     &__buttons {
-        
+
         width: 100%;
         padding-top: 40px;
         overflow: hidden;
-        
+
     }
-    
+
     &__content {
-        
+
         width: 80%;
         text-align: left;
         clear: both;
@@ -283,17 +284,17 @@
 
             border-top: 1px solid $white;
         }
-        
+
         .button__button {
-            
+
             float: right;
             padding: 10px 0;
             margin-left: 20px;
-            width: 150px; 
+            width: 150px;
             text-align: center;
             @include font-size(16);
             line-height: normal;
-            
+
             &--wide {
                 width: 90%;
                 position: absolute;
@@ -309,40 +310,40 @@
                 @include mq($mq-tab) {
                     margin-bottom: 20px;
                 }
-                
+
                 @include mq($mq-mob--lrg) {
                     margin: 0;
-                    
+
                     @include width(2, 2%);
                     float: left;
                 }
             }
         }
-        
+
         @include mq($mq-mob--lrg) {
             width: 100%;
             padding: 20px 0 0 0;
         }
-        
+
     }
 
     &__date {
-        
+
         float: left;
         width: 25%;
         margin-right: 2%;
         border: none;
         padding: 0 10px 0 0;
         text-align: center;
-        
+
         &--small {
             width: 18%;
             margin-right: 2%;
             border-right: 1px solid $secondaryFontColor;
-            
+
             @include mq($mq-mob--lrg) {
                 width: 25%;
-            }         
+            }
         }
 
         &--wide {
@@ -352,13 +353,13 @@
             margin-top:0;
 
             border-right: 1px solid $white;
- 
+
             text-align: left;
         }
 
         @include mq($mq-mob--lrg) {
             width: 35%;
-        }        
+        }
 
         p {
             color: $primaryFontColor;
@@ -368,27 +369,27 @@
             margin: 0;
             position: relative;
             top: -5px;
-            
+
             .geronimo & {
                 font-style: normal;
             }
-            
+
         }
-        
+
         span {
-            
+
             text-transform: uppercase;
             color: $primaryFontColor;
             font-style: normal;
-            
+
             @include font-size($milli-size);
-            
+
             .geronimo & {
                 color: $primaryFontColor;
             }
-            
+
         }
-        
+
         &--tertiary-color {
             p {
                 color: $tertiaryColor;
@@ -400,25 +401,25 @@
                 color: $tertiaryColor;
             }
         }
-        
+
     }
-    
+
     &__title {
-        
+
         float: left;
         width: 70%;
         text-align: left;
 
 
         .events__title {
-            
+
             width: 80%;
             padding-left: 10px;
-            
+
             @include mq($mq-mob--lrg) {
                 width: 73%;
             }
-                                    
+
         }
 
         &--narrow {
@@ -431,66 +432,66 @@
                 @include font-size(14);
             }
         }
-        
+
         @include mq($mq-mob--lrg) {
             width: 60%;
         }
-        
+
         a {
             color: $tertiaryFontColor;
         }
-        
+
     }
-    
+
     &__img {
-        float: left;        
+        float: left;
         background: $primaryColor;
         position: relative;
         width: 40%;
         overflow: hidden;
-            
+
         &:after {
-            
+
             content: '';
             padding-top: 70%;
             display: block;
-            
-            
+
+
         }
-        
+
         img {
-            
+
             position: absolute;
             width: 150%;
             height: auto;
             top: 50%;
             left: 50%;
-            
+
             -webkit-transform: translateX(-50%) translateY(-50%);
                 -ms-transform: translateX(-50%) translateY(-50%);
                     transform: translateX(-50%) translateY(-50%);
-            
+
             .lt-ie9 & {
-                
+
                 top: 0;
                 left: 0;
                 width: 101%;
-                
+
             }
-            
+
             &.fit {
-                
+
                 top: 0;
                 left: 0;
                 width: 100%;
-                
+
                 -webkit-transform: translateX(0%) translateY(-0%);
                     -ms-transform: translateX(0%) translateY(-0%);
                         transform: translateX(0%) translateY(-0%);
-                
+
             }
-            
-            
+
+
         }
 
         &--wide {
@@ -501,22 +502,22 @@
                 width: 100%;
             }
         }
-        
+
         @include mq($mq-mob--lrg) {
-            
+
             width: 100%;
             margin-bottom: 20px;
             background: transparent;
-            
+
         }
-        
+
     }
 
     &__start {
-        
+
         font-family: $secondaryFont;
-        
+
     }
 
-    
+
 }
