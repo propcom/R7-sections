@@ -92,6 +92,14 @@
                                     <?= strip_tags($item['description']);?>
                                 </p>
                             </div>
+                        
+                            <div class="menu__entry--info menu__entry--cat">
+                                <? if($item['cells'][0] !== ''): foreach($items['columns'] as $cell) : ?>
+
+                                    <p><?= strip_tags($cell);?></p>
+
+                                <? endforeach; endif; ?>
+                            </div>
 
                             <div class="menu__entry--info">
                             <? foreach($item['cells'] as $cell) : ?>

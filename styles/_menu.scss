@@ -248,6 +248,15 @@
             }
         }
         
+
+        &--cat {
+            display:none;
+
+            @include mq(680px){
+                display: inline-block;
+            }
+        }
+
         &--description {
             
             float: left;
