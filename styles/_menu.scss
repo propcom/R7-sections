@@ -218,6 +218,11 @@
             width: 20%;
             text-align: right;
             
+            p {
+                width: 33%;
+                float: left;
+                text-align: center;
+            }
         }
         
         &--description {
