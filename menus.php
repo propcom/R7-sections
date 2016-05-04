@@ -67,10 +67,19 @@
                 <div class="menu__container--sub<?= $i == 0 ? ' active' : '';?>">
                 <? switch ($menu->menu_type) : case 'pdf' :?><? break;?>                
                 <? case 'itemised' :?>
-
                 <? foreach($menu->categories as $items) : ?>
+                    
+                    <div class="menu__cat-title">
+                        <h3><?= $items['name'];?></h3>
+                        <div class="menu__entry--info">
+                            <? foreach($items['columns'] as $cell) : ?>
 
-                    <h3><?= $items['name'];?></h3>
+                                <p><?= strip_tags($cell);?></p>
+
+                            <? endforeach;?>
+                        </div>
+                    </div>
+                    
 
                     <? foreach($items['items'] as $item) :?>
 
