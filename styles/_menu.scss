@@ -155,12 +155,22 @@
         
     }
     
-    h3 {
+    &__cat-title {
         
         border-bottom: 5px solid $quinaryColor;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         margin-bottom: 25px;
         padding-top: 20px;
+
+        .menu__entry--info {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin:0;
+            width: 74%;
+            display:inline-block;
+        }
         
     }
     
@@ -214,17 +224,57 @@
         
         &--info {
             
-            float: left;
-            width: 20%;
+            width: 25%;
             text-align: right;
+            vertical-align: bottom;
+            display: inline-block;
+
+            margin-bottom: 1rem;
+
             
+            p {
+                width: 33%;
+                padding: 0 1px;
+                float: left;
+                text-align: center;
+                margin: 0;
+            }
+
+            @include mq(680px){
+                width: 50%;
+                float:none;
+                p {
+                    text-align: left;
+                }
+            }
+
+            &--top {
+                @include mq(680px){
+                    display: none;
+                }
+            }
+
         }
         
+
+        &--cat {
+            display:none;
+
+            @include mq(680px){
+                display: inline-block;
+            }
+        }
+
+        &--price {
+            @include mq(680px){
+                margin-bottom: 20px;
+            }
+        }
+
         &--description {
             
             float: left;
-            width: 80%;
-
+            width: 75%;
             
             p {
                 

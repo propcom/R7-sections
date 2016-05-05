@@ -67,10 +67,19 @@
                 <div class="menu__container--sub<?= $i == 0 ? ' active' : '';?>">
                 <? switch ($menu->menu_type) : case 'pdf' :?><? break;?>                
                 <? case 'itemised' :?>
-
                 <? foreach($menu->categories as $items) : ?>
+                    
+                    <div class="menu__cat-title">
+                        <h3><?= $items['name'];?></h3>
+                        <div class="menu__entry--info  menu__entry--info--top">
+                            <? foreach($items['columns'] as $cell) : ?>
 
-                    <h3><?= $items['name'];?></h3>
+                                <p><?= strip_tags($cell);?></p>
+
+                            <? endforeach;?>
+                        </div>
+                    </div>
+                    
 
                     <? foreach($items['items'] as $item) :?>
 
@@ -83,8 +92,16 @@
                                     <?= strip_tags($item['description']);?>
                                 </p>
                             </div>
+                        
+                            <div class="menu__entry--info menu__entry--cat">
+                                <? if($item['cells'][0] !== ''): foreach($items['columns'] as $cell) : ?>
 
-                            <div class="menu__entry--info">
+                                    <p><?= strip_tags($cell);?></p>
+
+                                <? endforeach; endif; ?>
+                            </div>
+
+                            <div class="menu__entry--info  menu__entry--info--price">
                             <? foreach($item['cells'] as $cell) : ?>
 
                                 <p><?= strip_tags($cell);?></p>
