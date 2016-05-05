@@ -168,7 +168,7 @@
 
         h3 {
             margin:0;
-            width: 79%;
+            width: 74%;
             display:inline-block;
         }
         
@@ -224,7 +224,7 @@
         
         &--info {
             
-            width: 20%;
+            width: 25%;
             text-align: right;
             vertical-align: bottom;
             display: inline-block;
@@ -234,6 +234,7 @@
             
             p {
                 width: 33%;
+                padding: 0 1px;
                 float: left;
                 text-align: center;
                 margin: 0;
@@ -246,6 +247,13 @@
                     text-align: left;
                 }
             }
+
+            &--top {
+                @include mq(680px){
+                    display: none;
+                }
+            }
+
         }
         
 
@@ -257,11 +265,16 @@
             }
         }
 
+        &--price {
+            @include mq(680px){
+                margin-bottom: 20px;
+            }
+        }
+
         &--description {
             
             float: left;
-            width: 80%;
-
+            width: 75%;
             
             p {
                 

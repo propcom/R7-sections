@@ -71,7 +71,7 @@
                     
                     <div class="menu__cat-title">
                         <h3><?= $items['name'];?></h3>
-                        <div class="menu__entry--info">
+                        <div class="menu__entry--info  menu__entry--info--top">
                             <? foreach($items['columns'] as $cell) : ?>
 
                                 <p><?= strip_tags($cell);?></p>
@@ -101,7 +101,7 @@
                                 <? endforeach; endif; ?>
                             </div>
 
-                            <div class="menu__entry--info">
+                            <div class="menu__entry--info  menu__entry--info--price">
                             <? foreach($item['cells'] as $cell) : ?>
 
                                 <p><?= strip_tags($cell);?></p>
