@@ -1,13 +1,11 @@
-<div class="js-book-dmn  book  book--dmn">
+<div class="popup-bg" data-popup="book"></div>
 
-    <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
-            
-        <div class="book__wrapper">
-
-        	<h3><?= Arr::get($config, 'title');?></h3>
-
-        	<a href="" class="js-toggle-dmn  book__close">X</a>
-                        
+<div class="popup" data-popup="book">
+    <div class="v-center">
+        <div class="v-center__table">
+            <div class="v-center__cell">
+                <div class="popup__content">
+                    <a href="" class="popup__close">X</a>
             <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
 
             <? foreach ($analytics as $tracking_code): ?>
@@ -15,9 +13,8 @@
                 DMN.val('ga_account', '<?= $tracking_code; ?>');
             </script>
             <? endforeach; ?>
-
+                </div>
+            </div>
         </div>
-    
     </div>
-
 </div>

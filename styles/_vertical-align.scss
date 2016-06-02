@@ -1,0 +1,32 @@
+.v-center {
+	height: 100%; width: 100%;
+	display: block;
+
+	&__slide {
+		display: none;
+
+		&--active {
+			display: block;
+		}
+	}
+
+	&__height{
+		@include mq (960px){
+			position: static !important;
+		}
+	}
+
+	&__table {
+		display: table;
+		height: 100%; width: 100%;
+	}
+
+	&__cell {
+		display: table-cell;
+		vertical-align: middle;
+
+		&--bottom{
+			vertical-align: bottom;
+		}
+	}
+}
