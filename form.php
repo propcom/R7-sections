@@ -63,7 +63,9 @@ if(isset($config['recipients']) && $config['recipients']) {
  *         If you want to make an 'opt-out' checkbox, set to 'checkbox-optout'
  * 		   If *not* using the checkbox, set to true if you want the user adding; or set to false if not
  */
-$addToDatabase = false;
+
+$addToDatabase = Arr::get($config['checkbox'], 'checkbox', false);
+
 
 /* Step 4a: Set whether you want a welcome mailer sent (if set up in the control panel) (true - send mailer; false - do not send mailer) */
 $sendWelcomeMailer = Arr::get($config, 'welcomeMailer', false);
@@ -182,24 +184,34 @@ if ($fh->showSuccessText && $confirmation) {
                                 </select>
                                 <div class="select"><?= \Arr::get($field_opts, 'label');?></div>
                             </div>
-                            
+
                             <? break;?>
-                            
+
                             <? case 'textarea':?>
                                 <label for="<?= $field;?>"><?= \Arr::get($field_opts, 'label');?></label>
                                 <textarea name="<?= $field;?>" id="<?= $field;?>" cols="30" rows="<?= \Arr::get($field_opts, 'rows', 1);?>" <?= \Arr::get($field_opts, 'required', false) ? 'required' : ''; ?>></textarea>
                             <? break;?>
-                            
+
                             <? default: ?>
-                            
+
                             <label for="<?= $field;?>"><?= \Arr::get($field_opts, 'label');?></label>
                             <input class="<?= \Arr::get($field_opts, 'extras');?>" id="<?= $field;?>" type="<?= \Arr::get($field_opts, 'type');?>" name="<?= $field;?>" value="<?php echo $fh->fields[$field]->value ?>" <?= \Arr::get($field_opts, 'required', false) ? 'required' : ''; ?>>
-                            
+
                             <? endswitch ?>
-                                                                
+
                        </div>
-                       
+
                     <? endforeach;?>
+
+                    <? if ( Arr::get($config['checkbox'], 'checkbox', false) ) : ?>
+
+                        <div class="field-wrap  field-wrap--full  field-wrap--checkbox">
+                            <input type="checkbox" name="mailing-list" id="<?= $multiFormName ?>-mailinglist" <?= \Arr::get( $config['checkbox'], 'checked' ) ? 'checked' : null ?>>
+                            <label for="<?= $multiFormName ?>-mailinglist"><?= \Arr::get( $config['checkbox'], 'label', 'Join mailing list?' ); ?></label>
+                        </div>
+
+                    <? endif; ?>
+
 
                     <div style="display:none !important;">
                         <textarea name="textboxfilter" rows="" cols=""></textarea>
