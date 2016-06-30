@@ -64,8 +64,7 @@ if(isset($config['recipients']) && $config['recipients']) {
  * 		   If *not* using the checkbox, set to true if you want the user adding; or set to false if not
  */
 
-$addToDatabase = Arr::get($config['checkbox'], 'checkbox', false);
-
+$addToDatabase = isset($config['checkbox']) ? Arr::get($config['checkbox'], 'checkbox', false) : false;
 
 /* Step 4a: Set whether you want a welcome mailer sent (if set up in the control panel) (true - send mailer; false - do not send mailer) */
 $sendWelcomeMailer = Arr::get($config, 'welcomeMailer', false);
@@ -203,7 +202,7 @@ if ($fh->showSuccessText && $confirmation) {
 
                     <? endforeach;?>
 
-                    <? if ( Arr::get($config['checkbox'], 'checkbox', false) ) : ?>
+                    <? if ($addToDatabase === 'checkbox' || $addToDatabase === 'checkbox-optout' ) : ?>
 
                         <div class="field-wrap  field-wrap--full  field-wrap--checkbox">
                             <input type="checkbox" name="mailing-list" id="<?= $multiFormName ?>-mailinglist" <?= \Arr::get( $config['checkbox'], 'checked' ) ? 'checked' : null ?>>
