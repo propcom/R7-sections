@@ -1,122 +1,179 @@
+.book {
 
-	.book {
+	&--dmn {
 
-		&--dmn {
+		z-index: 100;
+		display: none;
+		overflow-y: auto;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	    padding: 50px 0;
 
-			position: fixed;
-			top: 0;
-			left: 0;
-			display: none;
-			width: 100%;
-			height: 100%;
-			z-index: 100;
-			padding: 20px 0;
-			-webkit-backdrop-filter: blur(15px);
-			@include rgba('background-color', rgba($black, 0.9), $black);
-			overflow: auto;
+		-webkit-backdrop-filter: blur(15px);
 
-			.centre-wrap--centred {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-			}
+		@include rgba('background-color', rgba($black, 0.9), $black);
 
-			.book__wrapper {
-				position: relative;
-			    border: 0;
-			    max-width: 280px;
-			    margin: 0 auto;
-			    padding: 0;			
-			}
-
-		}
-
-		&__close {
-			
-			position: absolute;
-			top: 3px;
-			right: 0;
-			color: $white;
-			@include transition(all 0.5s);
-
-			&:hover {
-				color: $white;
-				text-decoration: none;
-				@include transform(scale(1.2));
-			}
-
-		}
+	}
 	
-		.dmn-form {
+	&__wrapper {
 
-			width: 100%;
-			margin: 0 auto;
-			border: 0;
-			padding: 0 0 20px 0;
+		position: relative;
+	    max-width: 360px;
+	    margin: 0 auto;
+	    padding: 0;			
 
-			h1 {
-				display: none;
-			}
+	    border: 0;
+	    
+	}
 
-			.main-inputs {
-				width: 100%;
-				margin: 0 auto;
-			}
+	&__heading {
 
-			input,
-			input[type="text"],
-			input[type="number"],
-			input[type="date"],
-			input[type="time"],
-			.select-wrap,
-			select {
-				display: inline-block;
-				width: 100%;
-				max-width: 100%;
-				padding: 0 10px;
-				margin-bottom: 5px;
-				background: $white;
-				height: 45px;
-				font-family: $primaryFont;
-				color: $primaryFontColor;
-				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				border-radius: 0;
-			}
+		@include font-size(22);
+		text-align: center;
 
-			label {
-				display: inline-block;
-				width: 100%;
-				font-family: $primaryFont;
-				color: $white;
-				@include font-size(14);
-			}
+	}
 
-			.powered-by {
-				float: none;
-				width: 196px;
-				margin: 10px auto;
-			}
+	&__close {
+		
+		position: absolute;
+		display: inline-block;
+		top: 0;
+		right: 0;
+		width: 30px;
+		height: 30px;
 
-			.submit {
-				border: 0;
-			    background: $white;
-			    color: $black;
-			    border-radius: 0;
-				position: relative;
-				margin: 10px auto;
-				bottom: 0;
-			    left: 0;
-			    right: 0;
-			    margin: auto;
-			    height: 45px;
-			    font-family: $primaryFont;
-			    @include font-size(16);
-			    font-weight: bold;
-			    text-shadow: none;
-			}
+		color: $white;
+
+		@include font-size(16, 30);
+		text-align: center;
+
+		@include transition(color 0.15s linear);
+
+		@include mq($mq-mob) {
+
+			display: block;
+			position: relative;
+			margin: 0 auto 10px;
+
+		}
+
+		&:hover {
+
+			color: $grey;
+
+			text-decoration: none;
 
 		}
 
 	}
+
+	.dmn-form {
+
+		width: 100%;
+
+        border: none;
+        box-sizing: border-box;
+
+        @include mq($mq-mob) {
+
+			padding: 20px;
+
+        }
+
+		h1 {
+
+			display: none;
+
+		}
+
+		.main-inputs {
+
+			width: 100%;
+			margin: 0 auto;
+
+		}
+
+		input,
+		input[type="text"],
+		input[type="number"],
+		input[type="date"],
+		input[type="time"],
+		.select-wrap,
+		select {
+
+			display: inline-block;
+			width: 100%;
+			max-width: 100%;
+			padding: 0 10px;
+			height: 35px;
+			
+			background: $white;
+			color: $primaryFontColor;
+			border-radius: 0;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			
+			@include font-size(14, 35);
+			font-family: $primaryFont;
+			
+		}
+
+		label {
+
+			display: block;
+			width: 100%;
+			margin-top: 20px;
+
+			color: $white;
+
+			font-family: $primaryFont;
+			@include font-size(14,16);
+			text-transform: uppercase;
+
+		}
+
+		.powered-by {
+
+			float: none;
+			width: 196px;
+			margin: 10px auto;
+
+		}
+
+		.submit {
+
+			display: block;
+			position: relative;
+			bottom: 0;
+		    left: 0;
+		    right: 0;
+		    width: 210px;
+		    max-width: 210px;
+			margin: 15px auto;
+			padding: 10px 0;
+
+		    background: none;
+		    border-radius: 0;
+		    border: 2px solid $white;
+		    outline: none;
+		    color: $white;
+
+		    font-family: $primaryFont;
+		    @include font-size(14);
+		    text-shadow: none;
+
+
+            &:hover {
+
+                background: $primaryColor;
+
+            }
+
+		}
+
+	}
+
+}

@@ -1,23 +1,31 @@
 <div class="js-book-dmn  book  book--dmn">
 
-    <div class="centre-wrap centre-wrap--centred centre-wrap--small centre-wrap--no">
+    <div class="v-align">
+
+        <div class="v-align__table">
+        
+            <div class="v-align__cell">
             
-        <div class="book__wrapper">
+                <div class="book__wrapper">
 
-        	<h3><?= Arr::get($config, 'title');?></h3>
+                	<a href="" class="js-toggle-dmn  book__close">X</a>
 
-        	<a href="" class="js-toggle-dmn  book__close">X</a>
-                        
-            <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
+                    <h3 class="book__heading"><?= Arr::get($config, 'title');?></h3>
+                                
+                    <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
 
-            <? foreach ($analytics as $tracking_code): ?>
-            <script>
-                DMN.val('ga_account', '<?= $tracking_code; ?>');
-            </script>
-            <? endforeach; ?>
+                    <? foreach ($analytics as $tracking_code): ?>
+                    <script>
+                        DMN.val('ga_account', '<?= $tracking_code; ?>');
+                    </script>
+                    <? endforeach; ?>
+
+                </div>
+            
+            </div>
 
         </div>
-    
+
     </div>
 
 </div>
