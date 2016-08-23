@@ -6,15 +6,15 @@ class Instagram {
 	public $count;
 	public $error = false;
 
-	public function __construct( $user_id, $count ) {
+	public function __construct() {
 
-		$this->user_id = $user_id;
-		$this->count = $count;
+		$this->user_id = 414143281;
+		$this->count = 20;
 		$this->token = '414143281.e2a9043.6d4acb839c38488f831d826bf29d32fe';
 
 		try {
 
-			$this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/'. $user_id .'/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
+			$this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/'. $this->user_id .'/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
 
 			if ( isset( $this->result->meta->error_message ) ) {
 
@@ -66,7 +66,7 @@ class Instagram {
 
 }
 
-$insta = new Instagram( \Arr::get( $config, 'user_id' ), \Arr::get( $config, 'count', 30 ) );
+$insta = new Instagram();
 
 ?>
 
