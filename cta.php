@@ -5,7 +5,7 @@
 				$new = [
 					'title' => $promo->promo_title,
 					'content' => $promo->promo_nav_title,
-					'image' => $promo->r6_template_image,
+					'image' => $promo->r7_template_image,
 					'button' => [
 						'text' => $promo->promo_button1_text,
 						'link' => $promo->venue_override_link ?: $promo->promo_button1_link,
