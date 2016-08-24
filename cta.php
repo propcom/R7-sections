@@ -1,5 +1,21 @@
 <div class="cta">
 	<div class="centre-wrap centre-wrap--centred">
+		<?
+			if (isset($promo) && $promo) {
+				$new = [
+					'title' => $promo->promo_title,
+					'content' => $promo->promo_nav_title,
+					'image' => $promo->r6_template_image,
+					'button' => [
+						'text' => $promo->promo_button1_text,
+						'link' => $promo->venue_override_link ?: $promo->promo_button1_link,
+					],
+				];
+
+				$config['regions'][2] = $new;
+			}
+		?>
+
 		<? if (isset($config['regions']) && $config['regions']) :?>
 			<? $i = 0;?>
 
