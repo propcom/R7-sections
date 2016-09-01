@@ -58,7 +58,7 @@
 
                         <div class="events__full-info events__full-info--wide">
                             <div class="events__date events__date--wide events__date--tertiary-color" id="<?= date('d', $date);?>">
-                                <span><?= date('F', $date);?></span>
+                                <span><?= date('M', $date);?></span>
                                 <p><?= date('d', $date);?></p>
                             </div>
                             <div class="events__title events__title--narrow">
