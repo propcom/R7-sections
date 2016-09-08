@@ -47,10 +47,10 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
 
                                     <div class="events__info">
                                         <div class="events__date">
-                                                <span><?= date('F', $date);?></span>
+                                                <span><?= date('M', $date);?></span>
                                                 <p><?= date('d', $date);?></p>
                                         </div>
-                                        <div class="events__title">                                       
+                                        <div class="events__title">
                                             <h5>
                                                 <? if(\Arr::get($config, 'link')) :?>
                                                 <a href="<?= \Arr::get($config, 'link').'?month='.date('M', $date).'#'.$event->id;?>">
