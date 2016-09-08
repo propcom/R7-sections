@@ -6,14 +6,14 @@ class Instagram {
 	public $count;
 	public $error = false;
 
-	public function __construct( $token, $count ) {
+	public function __construct( $token, $userId, $count ) {
 
 		$this->count = $count;
 		$this->token = $token;
 
 		try {
 
-			$this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/self/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
+			$this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/'.$userId.'/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
 
 			if ( isset( $this->result->meta->error_message ) ) {
 
@@ -27,7 +27,7 @@ class Instagram {
 
 		} catch ( Exception $e ) {
 
-			$this->error = 'Unable to Sign Up to Instagram';
+			$this->error = $e->getMessage();
 
 		};
 
@@ -57,6 +57,12 @@ class Instagram {
 		$result = curl_exec( $ch );
 		curl_close( $ch );
 
+		if(!is_dir( DOCROOT . '/data' )) {
+
+			mkdir( DOCROOT . '/data' );
+
+		}
+
 		file_put_contents( DOCROOT . '/data/instagram.json', $result );
 
 		return $result;
@@ -65,7 +71,7 @@ class Instagram {
 
 }
 
-$insta = new Instagram( \Arr::get( $config, 'token' ), \Arr::get( $config, 'count', 30 ) );
+$insta = new Instagram( \Arr::get( $config, 'token' ), \Arr::get( $config, 'userId' ), \Arr::get( $config, 'count', 30 ) );
 
 ?>
 
