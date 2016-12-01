@@ -37,9 +37,9 @@ $events = $calendar->get_events('today', \Arr::get($config, 'events', '+1 month'
                                     <a href="<?= \Arr::get($config, 'link').'?month='.date('M', $date).'#'.$event->id;?>">
                                     <? endif;?>
                                     <? if($event->image_id) :?>
-                                            <img zRS-src="<?= $event->image->get_src('small');?>" alt="<?= $event->name;?>" height="185" width="265">
+                                        <div class="events__slide__image" style="background: url('<?= $event->image->get_src('small') ?>');"></div>
                                     <? else :?>
-                                        <img zRS-src="/assets/img/regions/events/small-ph.png" alt="<?= $event->name;?>" height="185" width="265">
+                                    <div class="events__slide__image" style="background: url('/assets/img/regions/events/small-ph.png');" ></div>
                                     <? endif;?>
                                     <? if(\Arr::get($config, 'link')) :?>
                                     </a>

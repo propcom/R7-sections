@@ -131,33 +131,17 @@
 
     &__slide {
 
-        @include width(4, 2%);
-        float: left;
+        &__image {
 
-        visibility: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
+            overflow: hidden;
+            height: 0;
+            margin-bottom: 20px;
+            padding-bottom: 62.5%;
 
-        &:first-child {
-            position: relative;
-        }
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
 
-        &.zRS--slide {
-            visibility: visible;
-        }
-
-        img {
-			width: 100%;
-			height: auto;
-			max-height: 280px;
-            margin-bottom: 15px;
-            transition: opacity 0.25s;
-            opacity: 1;
-        }
-
-        img[zRS-src] {
-            opacity: 0;
         }
 
     }
@@ -188,6 +172,8 @@
     &__info {
 
         width: 100%;
+
+        @include font-size(0);
 
     }
 
@@ -330,7 +316,8 @@
 
     &__date {
 
-        float: left;
+        display: inline-block;
+        vertical-align: top;
         width: 25%;
         margin-right: 2%;
         border: none;
@@ -407,7 +394,8 @@
 
     &__title {
 
-        float: left;
+        display: inline-block;
+        vertical-align: top;
         width: 70%;
         text-align: left;
 
