@@ -57,12 +57,7 @@
 
 
 							<? if ( $event->image_id ) : ?>
-								<div class="events__img">
-									<div class="js-imager" data-src="<?= $event->image->get_src( 'large' ); ?>" data-alt="<?= $event->name; ?>"></div>
-									<noscript>
-										<img src="<?= $event->image->get_src( 'large' ); ?>" alt="<?= $event->name; ?>" height="185" width="265">
-									</noscript>
-								</div>
+								<div class="events__img  js-bg" data-bg="<?= $event->image->get_src( 'large' ); ?>"></div>
 							<? else : ?>
 								<div class="events__img">
 									<div class="js-imager" data-class="fit" data-src="/assets/img/regions/events/small-ph.png" data-alt="<?= $event->name; ?>"></div>

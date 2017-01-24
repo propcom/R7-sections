@@ -439,6 +439,9 @@
         width: 40%;
         overflow: hidden;
 
+        background-position: center;
+        background-size: cover;
+
         &:after {
 
             content: '';
@@ -496,7 +499,6 @@
 
             width: 100%;
             margin-bottom: 20px;
-            background: transparent;
 
         }
 
