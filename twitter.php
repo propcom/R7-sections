@@ -1,5 +1,5 @@
 <?php
-$SETUP = array('USER' => \Arr::get($config,'user', 'propellercomms'), 'MAXIMUM_ROWS' => \Arr::get($config, 'count', 10));
+$SETUP = array('USER' => \Arr::get($config, 'user', 'propellercomms'), 'MAXIMUM_ROWS' => \Arr::get($config, 'count', 10));
 // DEFINES
 foreach ($SETUP as $i => $v) {
 	if ($i == 'DATE_FORMAT' && $v == '') {
@@ -13,8 +13,7 @@ include_once('/var/www/shared/twitterincludes/CacheTwitter.php');
 $t = new CacheTwitter(10); // 10 min cache
 $twitterAvailable = $t->twitterAvailable();
 $userTimeline = $t->userTimeline(USER, MAXIMUM_ROWS);
-
-;?>   
+?>   
 
 <section class="twitter">
     
