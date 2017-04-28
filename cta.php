@@ -6,11 +6,11 @@
 			if ( isset( $promo ) && $promo ) {
 
 				$new = [
-					'title' 	=> $promo->promo_title,
-					'content' 	=> $promo->promo_nav_title,
+					'title' 	=> $promo->r7_header,
+					'content' 	=> $promo->r7_sub_header,
 					'image' 	=> $promo->r7_template_image,
 					'button' 	=> [
-						'text' 		=> $promo->promo_button1_text,
+						'text' 		=> $promo->r7_button_copy,
 						'link' 		=> $promo->venue_override_link ?: $promo->promo_button1_link,
 					],
 				];
