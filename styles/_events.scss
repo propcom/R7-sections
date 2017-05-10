@@ -206,10 +206,14 @@
 
         &--narrow {
             position: relative;
-            width: 23%;
-            float:left;
+            width: 22%;
+            display: inline-block;
+            vertical-align: top;
 
-            margin-right: 2%;
+            margin: {
+                left: 1%;
+                right: 1%;
+            }
             padding: 12px;
             padding-bottom: 60px;
             border: 3px solid $primaryColor;
@@ -218,7 +222,7 @@
             min-height: 700px;
 
             @include mq(1000px) {
-                width: 48%;
+                width: 47%;
                 min-height: 685px;
             }
 
