@@ -10,7 +10,7 @@
 					'content' 	=> $promo->r7_sub_header,
 					'image' 	=> $promo->r7_template_image,
 					'button' 	=> [
-						'text' 		=> $promo->r7_button_copy,
+						'text' 		=> $promo->r7_button_copy ?: $promo->promo_button1_text,
 						'link' 		=> $promo->venue_override_link ?: $promo->promo_button1_link,
 					],
 				];
