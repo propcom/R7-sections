@@ -53,7 +53,7 @@
 
 					<? if ( isset( $region['button'] ) ) : ?>
 
-						<a href="<?= $region['button']['link']; ?>" class="cta__button" title="<?= $region['button']['text']; ?>">
+						<a href="<?= $region['button']['link']; ?>" class="cta__button" title="<?= $region['button']['text']; ?>" target="_blank">
 							<?= $region['button']['text']; ?>
 						</a>
 
