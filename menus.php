@@ -15,7 +15,7 @@
     }
 
 ?>
-    
+
 <div class="centre-wrap">
 
     <div class="menu">
@@ -25,35 +25,35 @@
             <? $c = count($menu_group->menu_options_urls);?>
 
             <? foreach($menu_group->menu_options_urls as $url => $title) :?>
-                           
-                <? 
-            
+
+                <?
+
                 $class = 'food';
-            
+
                 if(contains($title, ['lunch', 'dinner', 'food', 'main'])) {
-                 
+
                     $class = 'food';
-    
+
                 } elseif(contains($title, ['wine', 'drinks', 'beer', 'drink'])) {
-                    
+
                     $class = 'drink';
-                    
+
                 } elseif(contains($title, ['sunday'])) {
-                    
+
                     $class = 'sunday';
-                    
+
                 } elseif(contains($title, ['kids', 'kid'])) {
-                    
+
                     $class = 'kids';
-                    
+
                 } elseif(contains($title, ['brunch', 'breakfast', 'snack', 'snacks'])) {
-                    
+
                     $class = 'brunch';
-                    
+
                 } ?>
-               
+
                 <? if(is_numeric($url)) :?>
-                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button  button__button--menu<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>                    
+                    <a class="<?= $class;?> <?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button  button__button--menu<?= $i === 0 ? ' active' : '' ?>" href="javascript:void(0);"><?= $title?></a>
                 <? else :?>
                     <a class="<?= ($i + 1) % 3 === 0 ? 'last ' : '';?><?= $c >= 3 ? 'float ' : '';?>button__button  button__button--menu pdf" href="<?= $url ?>" target="_blank"><?= $title?></a>
                 <? endif;?>
@@ -65,12 +65,13 @@
                 <? $i = 0;?>
                 <? foreach($menu_group->menus as $menu) :?>
                 <div class="menu__container--sub<?= $i == 0 ? ' active' : '';?>">
-                <? switch ($menu->menu_type) : case 'pdf' :?><? break;?>                
+                <? switch ($menu->menu_type) : case 'pdf' :?><? break;?>
                 <? case 'itemised' :?>
                 <? foreach($menu->categories as $items) : ?>
-                    
+
                     <div class="menu__cat-title">
                         <h3><?= $items['name'];?></h3>
+
                         <div class="menu__entry--info  menu__entry--info--top">
                             <? foreach($items['columns'] as $cell) : ?>
 
@@ -79,7 +80,10 @@
                             <? endforeach;?>
                         </div>
                     </div>
-                    
+					<p class="h_milli">
+						<?= $items['description'];?>
+					</p>
+
 
                     <? foreach($items['items'] as $item) :?>
 
@@ -92,7 +96,7 @@
                                     <?= strip_tags($item['description']);?>
                                 </p>
                             </div>
-                        
+
                             <div class="menu__entry--info menu__entry--cat">
                                 <? if($item['cells'][0] !== ''): foreach($items['columns'] as $cell) : ?>
 
@@ -121,17 +125,17 @@
 
                     <? default :?>
 
-                    <h1><?= $menu->name;?></h1>                    
+                    <h1><?= $menu->name;?></h1>
                     <p><?= $menu->content;?></p>
 
-                <? break;?>               
+                <? break;?>
 
                 <? endswitch;?>
 
             </div>
             <? $i++;?>
             <? endforeach;?>
-            </div>				
+            </div>
         </div>
     </div>
 
