@@ -57,7 +57,7 @@
 
 
 							<? if ( $event->image_id ) : ?>
-								<div class="events__img  js-bg" data-bg="<?= $event->image->get_src( 'large' ); ?>"></div>
+								<div class="events__img" style="background: url(<?= $event->image->get_src( 'large' ); ?>); background-position: center; background-size: cover;"></div>
 							<? else : ?>
 								<div class="events__img">
 									<div class="js-imager" data-class="fit" data-src="/assets/img/regions/events/small-ph.png" data-alt="<?= $event->name; ?>"></div>
