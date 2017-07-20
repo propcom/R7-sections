@@ -115,7 +115,7 @@ $insta = new Instagram( \Arr::get( $insta_cfg, 'user_id' ), \Arr::get( $insta_cf
 
                 <? else : ?>
 
-                    <a href="<?= $photo->link; ?>" target="_blank" title="<?= $photo->caption->text; ?>">
+                    <a href="<?= $photo->link; ?>" target="_blank" title="<?= $photo->caption ? $photo->caption->text : '-' ?>">
                         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
                     </a>
 
