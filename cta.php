@@ -36,7 +36,7 @@
 					<? if ( is_string ( $content ) ) : ?>
 
 						<p>
-							<?= \Str::truncate( $content, 200, '...' ); ?>
+							<?= \Str::truncate( html_entity_decode($content), 200, '...' ); ?>
 						</p>
 
 					<? elseif ( is_array ( $content ) ) : ?>
