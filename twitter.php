@@ -13,51 +13,58 @@ include_once('/var/www/shared/twitterincludes/CacheTwitter.php');
 $t = new CacheTwitter(10); // 10 min cache
 $twitterAvailable = $t->twitterAvailable();
 $userTimeline = $t->userTimeline(USER, MAXIMUM_ROWS);
-?>   
+?>
 
-<section class="twitter">
-    
-    <div class="centre-wrap centre-wrap--centred">
+<? if (!isset($userTimeline->error) || isset($userTimeline->error) && $userTimeline->error != 'Not authorized.') : ?>
+
+    <section class="twitter">
         
-        <div class="twitter__slider<?= $config['count'] > 2 ? ' draggable' : '';?>">
-        
-            <div class="inner-slider">
-                <? if ($twitterAvailable) :?>
+        <div class="centre-wrap centre-wrap--centred">
+            
+            <div class="twitter__slider<?= $config['count'] > 2 ? ' draggable' : '';?>">
+            
+                <div class="inner-slider">
+                    <? if ($twitterAvailable) :?>
 
-                    <? if ($userTimeline) :?>
+                        <? if ($userTimeline) :?>
 
-                        <? foreach ($userTimeline as $tweet) : ?>
+                            <? var_dump($userTimeline); die; ?>
 
-                            <div class="twitter__slide">
+                            <? foreach ($userTimeline as $tweet) : ?>
 
-                                <a href="http://twitter.com/<?= \Arr::get($config, 'user', 'propellercomms') ?>" class="twitter__slide__link" target="_blank"></a>
+                                <div class="twitter__slide">
 
-                                <p><?= twitter::convertLinks($tweet->text); ?></p>
+                                    <a href="http://twitter.com/<?= \Arr::get($config, 'user', 'propellercomms') ?>" class="twitter__slide__link" target="_blank"></a>
 
-                            </div>                   
+                                    <p><?= twitter::convertLinks($tweet->text); ?></p>
 
-                        <? endforeach; ?>
+                                </div>                   
 
-                    <? else : ?>
+                            <? endforeach; ?>
 
-                        <p>Twitter is down. Try again later.</p>
+                        <? else : ?>
 
-                    <? endif;?>
+                            <p>Twitter is down. Try again later.</p>
 
-                <? else :?>
+                        <? endif;?>
 
-                    <p>Twitter is down. Try again later</p>
+                    <? else :?>
 
-                <? endif;?>               
+                        <p>Twitter is down. Try again later</p>
+
+                    <? endif;?>               
+                </div>
+                
+                <? if($config['count'] > 2) :?>
+                <a href="javascript:void(0);" class="twitter__nav" data-direction="prev">l</a>
+                <a href="javascript:void(0);" class="twitter__nav" data-direction="next">r</a>            
+                <? endif;?>
+            
             </div>
             
-            <? if($config['count'] > 2) :?>
-            <a href="javascript:void(0);" class="twitter__nav" data-direction="prev">l</a>
-            <a href="javascript:void(0);" class="twitter__nav" data-direction="next">r</a>            
-            <? endif;?>
-        
         </div>
-        
-    </div>
 
-</section>
+    </section>
+
+<? endif; ?>
+
