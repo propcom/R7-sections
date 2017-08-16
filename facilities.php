@@ -56,8 +56,11 @@
                             <? endif;?>
                             
                             <? if(isset($config['button'])) :?>
-                            <div class="facilities__buttons">
-                                <button class="button__button  js-toggle-dmn">Hire Enquiry</button>
+                            <div class="facilities__buttons  js-event-tracker">
+                                <button class="button__button  js-toggle-dmn  js-event-tracker"
+                                        data-tracking-category="Booking" data-tracking-action="Click" data-tracking-label="Facility button">
+                                    Hire Enquiry
+                                </button>
                             </div>
                             <? endif;?>
                         </div>
