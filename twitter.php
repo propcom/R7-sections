@@ -18,17 +18,15 @@ $userTimeline = $t->userTimeline(USER, MAXIMUM_ROWS);
 <? if (!isset($userTimeline->error) || isset($userTimeline->error) && $userTimeline->error != 'Not authorized.') : ?>
 
     <section class="twitter">
-        
+
         <div class="centre-wrap centre-wrap--centred">
-            
+
             <div class="twitter__slider<?= $config['count'] > 2 ? ' draggable' : '';?>">
-            
+
                 <div class="inner-slider">
                     <? if ($twitterAvailable) :?>
 
                         <? if ($userTimeline) :?>
-
-                            <? var_dump($userTimeline); die; ?>
 
                             <? foreach ($userTimeline as $tweet) : ?>
 
