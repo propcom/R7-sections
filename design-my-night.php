@@ -19,6 +19,12 @@
                             DMN.val('ga_account', '<?= Arr::get($config, 'tracking-id');?>');
                         </script>
                     <? endif ?>
+	                <? if (Arr::get($config, 'callback')): ?>
+		                <script>
+			                DMN.val('return_url', '<?= Uri::base(false) . $config['callback']; ?>?booking_complete=true');
+			                DMN.val('return_method', 'post');
+		                </script>
+	                <? endif ?>
 
                 </div>
 
