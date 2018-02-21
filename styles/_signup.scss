@@ -1,23 +1,23 @@
 .signup {
-    
+
     width: 100%;
     color: $secondaryFontColor;
-    
+
     &__background {
-        
+
         width: 100%;
         overflow: hidden;
         padding: 5px 0;
-        
+
         background: url(../img/regions/signup/signup-bg.png) center $quaternaryColor;
 
         box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.35) inset, 1px -3px 10px rgba(0, 0, 0, 0.35) inset;
-        
-        
+
+
     }
-    
+
     &__terms {
-        
+
         display: none;
         position: absolute;
         width: 95%;
@@ -29,125 +29,199 @@
         right: 0;
         text-align: center;
         border: 4px solid $primaryColor;
-        
+
         background: $secondaryColor;
-        
-        p {
-            
-            margin-bottom: 20px;
-            
-        }
-        
+
+        p { margin-bottom: 20px; }
+
         &.active {
-            
+
             display: block;
             z-index: 102;
-            
+
         }
-        
+
         @include mq($mq-mob--lrg) {
-            
+
             padding: 15px;
-            
+
         }
-        
+
     }
-    
+
     &__wrapper {
-        
-        padding: 30px 35px;
-        
+
+        max-width: 925px;
+        margin: auto;
+        padding: 50px 0;
+
         @include mq($mq-mob--lrg) {
-            
-            padding: 30px 20px;
-            
+
+            padding: 30px 0;
+
         }
-        
+
     }
-    
+
     h3 {
-        
+
         margin-bottom: 35px;
-        
+
     }
-    
+
     h4 {
-        
+
         margin-bottom: 5px;
-        
+
     }
-    
+
     p {
-        
-        @include font-size($delta-size);
+
+        @include font-size(16,20);
         margin-bottom: 30px;
-        
-        
+
+        &.welcomeText {
+
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
+
+        }
+
+
         &.terms {
 
-            @include font-size(16);
+            @include font-size(12,20);
             margin-bottom: 0;
             float: left;
             font-family: $primaryFont;
             width: 100%;
-            padding-top: 10px;
-            
+            padding-top: 45px;
+
             a {
-                
+
                 color: $secondaryFontColor;
-                
+
                 &:hover {
-                    
+
                     color: $tertiaryFontColor;
-                    
+
                 }
-                
+
             }
 
         }
-        
+
     }
-    
+
     .field-wrap {
-        
-        @include width(4, 2%);
+
+        @include width(3, 2%);
         float: left;
-        
+
         @include mq(950px) {
-            
+
             @include width(1, 0%);
             margin-bottom: 20px;
-            
-        }
-        
-    }
-    
-    .select-wrap {
-        
-        width: 37.5%;
-    }
-    
-    input[type="submit"] {
-        
-        position: relative;
-        float: right;
-        height: 49px;
-        padding-top: 2px;
-        line-height: 30px;
 
-        @include width(4, 2%);
+        }
+
+    }
+
+    .select-wrap { width: 37.5%; }
+
+    .consent {
+
+        text-align: center;
+        font-size: 0;
+        margin-top: 50px;
+        margin-bottom: 35px;
 
         @include mq(950px) {
-            display: block;
-            margin: 0 auto 0 auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profiling-consent {
+
+            opacity: .3;
+            pointer-events: none;
+
+            &.active {
+                opacity: 1;
+                pointer-events: visible;
+            }
+
+        }
+
+        .checkbox-wrap {
+
+            display: inline-block;
+            vertical-align: middle;
+            height: 14px;
+            width: 14px;
+            margin-right: 10px;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 3px;
+
+            input {
+                position: absolute;
+                left: 0;
+                border: none;
+                width: 18px;
+                height: 18px;
+                opacity: 0;
+            }
+
+            .checkbox-mark {
+                display: none;
+                pointer-events: none;
+                font-size: 13px;
+                line-height: 13px;
+
+                &:after { content: '\2713'; }
+
+                &.active { display: block; }
+            }
+
+        }
+
+        label {
+            display: inline;
+            vertical-align: middle;
+            width: auto;
             float: none;
+            text-align: center;
+            @include font-size(16,20);
+        }
+
+    }
+
+
+
+    input[type="submit"] {
+
+        position: relative;
+        display: block;
+        width: 32%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0;
+        height: 45px;
+        line-height: 30px;
+
+
+        @include mq(950px) {
+
             width: 100%;
 
             &.last {
                 margin-right: auto;
             }
         }
-        
+
     }
-    
+
 }
