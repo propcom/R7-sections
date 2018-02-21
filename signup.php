@@ -78,6 +78,8 @@ $group5 = false;
 
 $fh->addField(new FormFieldBool('marketing-consent', false));
 $fh->addField(new FormFieldBool('profiling-consent', false));
+$fh->addField(new FormFieldText('page-url', false, 255, false, true));
+$fh->addField(new FormFieldText('custom-source', false, 32));
 
 if(isset($config['listIDs']) && $config['listIDs']) {
 
@@ -189,6 +191,13 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                             <div style="display:none !important;">
                                 <textarea name="textboxfilter" rows="" cols=""></textarea>
                                 <input type="hidden" name="multiFormName" value="<?= $multiFormName ?>" />
+                                <?
+                					if(isset($_SERVER['HTTP_HOST'])) { $domain = $_SERVER['HTTP_HOST']; }
+                					if(isset($_SERVER['REQUEST_URI'])) { $page = $_SERVER['REQUEST_URI']; }
+
+                                    if($domain && $page) { echo '<input type="hidden" name="page-url" value="'. $domain, $page .'" />'; }
+                				?>
+                				<input type="hidden" name="custom-source" value="signupform" />
                             </div>
 
                             <input type="submit" name="submitted" value="Send" class="submit last" />
