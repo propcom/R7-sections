@@ -71,7 +71,7 @@
 
     h4 {
 
-        margin-bottom: 5px;
+        margin-bottom: 10px;
 
     }
 
@@ -94,7 +94,6 @@
 
             @include font-size(12,20);
             margin-bottom: 0;
-            float: left;
             font-family: $primaryFont;
             width: 100%;
             padding-top: 45px;
@@ -102,10 +101,11 @@
             a {
 
                 color: $secondaryFontColor;
+                text-decoration: underline;
 
                 &:hover {
 
-                    color: $tertiaryFontColor;
+                    color: $secondaryFontColor;
 
                 }
 
@@ -198,7 +198,6 @@
         }
 
     }
-
 
 
     input[type="submit"] {

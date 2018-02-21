@@ -1,155 +1,246 @@
 .generic-form {
-    
+
     width: 100%;
     color: $secondaryFontColor;
     background: $primaryColor;
     padding: 40px 0 80px 0;
     position: relative;
-    
+
     .anchor {
-        
+
         position: absolute;
         top: -60px;
-        
+
     }
-    
+
     &__wrapper {
-        
+
         border: 4px solid $secondaryFontColor;
         padding: 30px 35px;
-        
+
         @include mq($mq-mob--lrg) {
-            
+
             padding: 30px 20px;
-            
+
         }
-        
+
     }
-    
+
     h3 {
-        
+
         margin-bottom: 15px;
-        
+
     }
-    
+
     .subtitle {
-        
+
         margin-bottom: 20px;
-        
+
     }
-    
+
     h4 {
-        
+
         margin-bottom: 5px;
-        
+
     }
-    
+
     p {
-        
+
         @include font-size($delta-size);
         margin-bottom: 30px;
-        
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        &.terms {
+
+            @include font-size(12,20);
+            margin-bottom: 0;
+            font-family: $primaryFont;
+            width: 100%;
+            padding-top: 75px;
+
+            a {
+
+                color: $secondaryFontColor;
+                text-decoration: underline;
+
+                &:hover { color: $secondaryFontColor; }
+
+            }
+
+        }
+
     }
-    
+
     .field-wrap {
-        
+
         @include width(3, 1%);
         margin-bottom: 1%;
         float: left;
-        
+
         &--half {
-            
+
             @include width(2, 1%);
-            
+
         }
-                
+
         &--full {
 
             width: 100%;
             margin-right: 0px;
-        
+
             label {
 
                 width: 10%;
-                
+
                 @include mq($mq-tab) {
-                    
+
                     width: 15%;
-                    
+
                 }
-                
+
                 @include mq($mq-mob--lrg) {
-                    
+
                     width: 20%;
-                    
+
                 }
 
             }
-            
+
             input[type="text"], input[type="email"], input[type="phone"], textarea {
-                
+
                 width: 90%;
-                
+
                 @include mq($mq-tab) {
-                    
+
                     width: 85%;
-                    
+
                 }
-                
+
                 @include mq($mq-mob--lrg) {
-                    
+
                     width: 80%;
-                    
+
                 }
-                
+
             }
 
         }
-        
+
         @include mq($mq-mob--lrg) {
-            
+
             @include width(1, 0%);
             margin-bottom: 20px;
-            
+
             padding: 0 10px;
-            
+
             label {
-                
+
                 width: 100%;
                 border-bottom: 1px solid $primaryColor;
-                
+
             }
-            
+
             input[type="text"], input[type="email"], input[type="phone"], textarea {
-                
+
                 width: 100%;
-                
+
             }
-            
+
         }
-        
+
     }
-    
+
+    .consent {
+
+        text-align: center;
+        font-size: 0;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        @include mq(950px) {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profiling-consent {
+
+            opacity: .3;
+            pointer-events: none;
+
+            &.active {
+                opacity: 1;
+                pointer-events: visible;
+            }
+
+        }
+
+        .checkbox-wrap {
+
+            display: inline-block;
+            vertical-align: middle;
+            height: 14px;
+            width: 14px;
+            margin-right: 10px;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 3px;
+
+            input {
+                position: absolute;
+                left: 0;
+                border: none;
+                width: 18px;
+                height: 18px;
+                opacity: 0;
+            }
+
+            .checkbox-mark {
+                display: none;
+                pointer-events: none;
+                font-size: 13px;
+                line-height: 13px;
+
+                &:after { content: '\2713'; }
+                &.active { display: block; }
+            }
+
+        }
+
+        label {
+            display: inline;
+            vertical-align: middle;
+            width: auto;
+            float: none;
+            text-align: center;
+            @include font-size(16,20);
+        }
+
+    }
+
     .select-wrap {
-        
+
         padding: 0;
-        
+
     }
-    
+
     input[type="submit"] {
-        
+
         position: relative;
         bottom: -60px;
         margin-top: -20px;
         border: 4px solid transparent;
         line-height: 52px;
-        
+
         &:hover {
-            
+
             border-color: $white;
-            
+
         }
-        
+
     }
-    
+
 }

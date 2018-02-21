@@ -123,8 +123,8 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
 
                     <? else: ?>
 
-                        <h4><?= \Arr::get($config, 'title', 'Claim your Free Drink');?></h4>
-                        <p class="welcomeText">If you would like to stay in touch, please confirm your communication preferences and review our <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">privacy policy</a>.</p>
+                        <h4>Keep in touch with our very latest news, events,<br/> tipples and treats</h4>
+                        <p class="welcomeText">Please confirm your communication preferences below.</p>
 
                     <? endif; ?>
 
@@ -204,7 +204,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                         </div>
 
                         <p class="terms">
-                            Young & Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our privacy policy which can be found at www.youngs.co.uk/privacy-policy. Please read this policy before signing up to our database. Promoter: Young & Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England & Wales Company No. 32762.
+                            Young & Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our privacy policy which can be found at <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">www.youngs.co.uk/privacy-policy</a>. Please read this policy before completing this form. Promoter: Young & Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England & Wales Company No. 32762
                         </p>
                     </form>
 
