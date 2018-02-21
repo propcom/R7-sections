@@ -65,6 +65,10 @@ if(isset($config['recipients']) && $config['recipients']) {
  */
 $addToDatabase = false;
 
+if (isset($_POST['marketing-consent'])) {
+    $addToDatabase = true;
+}
+
 /* Step 4a: Set whether you want a welcome mailer sent (if set up in the control panel) (true - send mailer; false - do not send mailer) */
 $sendWelcomeMailer = Arr::get($config, 'welcomeMailer', false);
 
