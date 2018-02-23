@@ -10,7 +10,7 @@ class Instagram {
 
         $this->user_id = $user_id;
         $this->count = $count;
-        $this->token = '414143281.e2a9043.6d4acb839c38488f831d826bf29d32fe';
+        $this->token = '414143281.e2a9043.c4fd9115f0ab479da4122b0ddfe25169';
 
         try {
 
