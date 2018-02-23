@@ -164,23 +164,22 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                                    <div class="select">MM</div>
                                </div>
                             </div>
-
                         </div>
 
                         <div class="clearfix">
                             <div class="consent">
-                                <div class="mb15<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
-                        			<input type="checkbox" name="marketing-consent" id="<?=$multiFormName?>-marketing-consent"
+                                <div class="mb15 field-wrap<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
+                        			<input type="checkbox" required name="marketing-consent" id="<?=$multiFormName?>-marketing-consent"
                         				value=""<?php echo @$fh->fields['marketing-consent']->checked?'checked="checked" ':''?>
                         				class="checkbox js-terms"
                         			/>
                         			<label for="<?=$multiFormName?>-marketing-consent">Sign me up for offers, news and promotions, mainly via email</label>
                         		</div>
 
-                        		<div class="<?php if (@$fh->fields['profiling-consent']->isError) { ?> error<? } ?> js-field  profiling-consent">
+                        		<div class="field-wrap<?php if (@$fh->fields['profiling-consent']->isError) { ?> error<? } ?> js-field  profiling-consent">
                         			<input type="checkbox" name="profiling-consent" id="<?=$multiFormName?>-profiling-consent"
                         				value=""<?php echo @$fh->fields['profiling-consent']->checked?'checked="checked" ':''?>
-                        				class="checkbox "
+                        				class="checkbox"
                         			/>
                         			<label for="<?=$multiFormName?>-profiling-consent">I am happy for my data to be used to personalise my customer experience</label>
                         		</div>

@@ -127,6 +127,10 @@
 
         }
 
+        .error-tooltip {
+            display: none;
+        }
+
     }
 
     .select-wrap { width: 37.5%; }
@@ -195,6 +199,22 @@
             float: none;
             text-align: center;
             @include font-size(16,20);
+        }
+
+        .field-wrap {
+            position: relative;
+            float: none;
+            width: 100%;
+            background: none;
+            color: #FFF;
+
+            &.error { border: none; }
+
+            .error-tooltip {
+                display: block;
+                padding-top: 5px;
+                font-size: 13px;
+            }
         }
 
     }
