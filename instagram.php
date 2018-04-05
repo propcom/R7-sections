@@ -1,83 +1,18 @@
 <?php
 
-class Instagram {
-
-    public $result;
-    public $count;
-    public $error = false;
-
-    public function __construct( $user_id, $count ) {
-
-        $this->user_id = $user_id;
-        $this->count = $count;
-        $this->token = '414143281.e2a9043.c4fd9115f0ab479da4122b0ddfe25169';
-
-        try {
-
-            $this->result = json_decode( $this->fetch( 'https://api.instagram.com/v1/users/'. $this->user_id .'/media/recent?count=' . $this->count . '&access_token=' . $this->token ) );
-
-            if ( isset( $this->result->meta->error_message ) ) {
-
-                $this->error = $this->result->meta->error_message;
-
-            } else {
-
-                $this->result = $this->result->data;
-
-            }
-
-        } catch ( Exception $e ) {
-
-            $this->error = 'Unable to Sign Up to Instagram';
-
-        };
-
-    }
-
-    public function fetch( $url ) {
-
-        try {
-
-            $last_modified = filemtime( DOCROOT . '/data/instagram.json' );
-
-            if ( time() - $last_modified < ( 60 * 5 ) ) {
-
-                $result = file_get_contents( DOCROOT . '/data/instagram.json' );
-
-                return $result;
-
-            }
-
-        } catch ( Exception $e ) {
-        };
-
-        $ch = curl_init();
-        curl_setopt( $ch, CURLOPT_URL, $url );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt( $ch, CURLOPT_TIMEOUT, 20 );
-        $result = curl_exec( $ch );
-        curl_close( $ch );
-
-        file_put_contents( DOCROOT . '/data/instagram.json', $result );
-
-        return $result;
-
-    }
-
-}
-
-$insta = new Instagram( \Arr::get( $insta_cfg, 'user_id' ), \Arr::get( $insta_cfg, 'count', 30 ) );
+$instagram = new Instagram\InstagramFeed(\Arr::get( $insta_cfg, 'user_id' ));
+$posts = $instagram->getPosts(\Arr::get( $insta_cfg, 'count', 30 ) );
 
 ?>
 
 <div class="instagram">
 
-    <? if ( ! $insta->error ) : ?>
+    <? if ( !empty($posts) ) : ?>
 
         <div class="instagram__slider">
             <div class="inner-slider">
                 <? $i = 0; ?>
-                <? foreach ( $insta->result as $photo ) : ?>
+                <? foreach ( $posts as $photo ) : ?>
 
                 <? if ( $i % 5 === 0 ) : ?>
 
@@ -132,16 +67,6 @@ $insta = new Instagram( \Arr::get( $insta_cfg, 'user_id' ), \Arr::get( $insta_cf
             </div>
         </div>
 
-    <? else : ?>
-
-        <div class="centre-wrap">
-
-            <p><?= $insta->error; ?></p>
-
-        </div>
-
     <? endif; ?>
-
-</div>
 
 </div>
