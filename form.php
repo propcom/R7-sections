@@ -212,20 +212,11 @@ if ($fh->showSuccessText && $confirmation) {
 
                     <div class="consent">
                         <p class="welcomeText">If you would like to stay in touch, please confirm your communication preferences and review our <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">privacy policy</a>.</p>
-                        <div class="mb15<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
+                        <div class="mb15  <?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
                             <input type="checkbox" name="marketing-consent" id="<?=$multiFormName?>-marketing-consent"
                                 value=""<?php echo @$fh->fields['marketing-consent']->checked?'checked="checked" ':''?>
-                                class="checkbox js-terms"
-                            />
+                                class="checkbox js-terms"/>
                             <label for="<?=$multiFormName?>-marketing-consent">Sign me up for offers, news and promotions, mainly via email</label>
-                        </div>
-
-                        <div class="<?php if (@$fh->fields['profiling-consent']->isError) { ?> error<? } ?> js-field  profiling-consent">
-                            <input type="checkbox" name="profiling-consent" id="<?=$multiFormName?>-profiling-consent"
-                                value=""<?php echo @$fh->fields['profiling-consent']->checked?'checked="checked" ':''?>
-                                class="checkbox "
-                            />
-                            <label for="<?=$multiFormName?>-profiling-consent">I am happy for my data to be used to personalise my customer experience</label>
                         </div>
                     </div>
 
@@ -250,7 +241,7 @@ if ($fh->showSuccessText && $confirmation) {
         </div>
 
         <p class="terms">
-            Young &amp; Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our privacy policy which can be found at <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">www.youngs.co.uk/privacy-policy</a>. Please read this policy before completing this form. Promoter: Young &amp; Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England &amp; Wales Company No. 32762
+            In future we may tailor emails and online advertising based on your location and what you’ve shown an interest in. By clicking on ‘Send’ on the above, you’re accepting our Privacy & Cookie Policy. Young & Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our Privacy & Cookie Policy which can be found at <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">www.youngs.co.uk/privacy-policy</a>. Please read this before clicking ‘Send’. Promoter: Young & Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England & Wales Company No. 32762
         </p>
 
     </div>

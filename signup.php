@@ -76,7 +76,7 @@ $group3 = false;
 $group4 = false;
 $group5 = false;
 
-$fh->addField(new FormFieldBool('marketing-consent', false));
+$fh->addField(new FormFieldBool('marketing-consent', true));
 $fh->addField(new FormFieldBool('profiling-consent', false));
 $fh->addField(new FormFieldText('page-url', false, 255, false, true));
 $fh->addField(new FormFieldText('custom-source', false, 32));
@@ -144,7 +144,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                             <div class="field-wrap<?php if ($fh->fields['dob']->isError) { ?> error<? } ?>">
                                 <label for="dob">Birthday</label>
 
-                                <div class="select-wrap">
+                                <div class="select-wrap  select-wrap--day">
                                     <select name="dob-day" id="dob-day" <?= $dobRequired ? 'required' : ''; ?>>
                                         <option value="">DD</option>
                                         <?php for ($i = 1; $i <= 31; $i++) { ?>
@@ -154,7 +154,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                                     <div class="select">DD</div>
                                 </div>
 
-                                <div class="select-wrap">
+                                <div class="select-wrap  select-wrap--month">
                                     <select name="dob-month" id="dob-month" <?= $dobRequired ? 'required' : ''; ?>>
                                         <option value="">MM</option>
                                         <?php for ($i = 1; $i <= 12; $i++) { ?>
@@ -163,6 +163,15 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                                     </select>
                                    <div class="select">MM</div>
                                </div>
+                               <div class="select-wrap  select-wrap--year">
+                                        <select name="dob-year" id="dob-year" <?= $dobRequired ? 'required' : ''; ?>>
+                                            <option value="">YY</option>
+                                            <?php for ($i = date("Y"); $i >= 1900; $i--) { ?>
+                                                <option value="<?php echo $i ?>"<?php echo $fh->fields['dob']->year == $i ? ' selected="selected"' : '' ?>><?php echo $i ?></option>
+                                            <? } ?>
+                                        </select>
+                                       <div class="select">YY</div>
+                                   </div>
                             </div>
                         </div>
 
@@ -171,17 +180,8 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                                 <div class="mb15 field-wrap<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
                         			<input type="checkbox" required name="marketing-consent" id="<?=$multiFormName?>-marketing-consent"
                         				value=""<?php echo @$fh->fields['marketing-consent']->checked?'checked="checked" ':''?>
-                        				class="checkbox js-terms"
-                        			/>
+                        				class="checkbox js-terms" required/>
                         			<label for="<?=$multiFormName?>-marketing-consent">Sign me up for offers, news and promotions, mainly via email</label>
-                        		</div>
-
-                        		<div class="field-wrap<?php if (@$fh->fields['profiling-consent']->isError) { ?> error<? } ?> js-field  profiling-consent">
-                        			<input type="checkbox" name="profiling-consent" id="<?=$multiFormName?>-profiling-consent"
-                        				value=""<?php echo @$fh->fields['profiling-consent']->checked?'checked="checked" ':''?>
-                        				class="checkbox"
-                        			/>
-                        			<label for="<?=$multiFormName?>-profiling-consent">I am happy for my data to be used to personalise my customer experience</label>
                         		</div>
                             </div>
                         </div>
@@ -199,11 +199,11 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                 				<input type="hidden" name="custom-source" value="signupform" />
                             </div>
 
-                            <input type="submit" name="submitted" value="Send" class="submit last" />
+                            <input type="submit" name="submitted" value="Yes Please" class="submit last" />
                         </div>
 
                         <p class="terms">
-                            Young & Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our privacy policy which can be found at <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">www.youngs.co.uk/privacy-policy</a>. Please read this policy before completing this form. Promoter: Young & Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England & Wales Company No. 32762
+                            In future we may tailor emails and online advertising based on your location and what you’ve shown an interest in. By clicking on ‘Yes Please’ on the above, you’re accepting our Privacy & Cookie Policy. Young & Co.’s Brewery, P.L.C and its group of companies are committed to protecting your data and it will be processed in accordance with our Privacy & Cookie Policy which can be found at <a href="http://www.youngs.co.uk/privacy-policy" target="_blank">www.youngs.co.uk/privacy-policy</a>. Please read this before clicking ‘Yes Please’. Promoter: Young & Co.’s Brewery P.L.C, Riverside House, 26 Osiers Road, Wandsworth, London SW18 1NH. Registered in England & Wales Company No. 32762
                         </p>
                     </form>
 

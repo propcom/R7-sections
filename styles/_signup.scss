@@ -51,7 +51,7 @@
 
     &__wrapper {
 
-        max-width: 925px;
+        max-width: 1100px;
         margin: auto;
         padding: 50px 0;
 
@@ -133,7 +133,28 @@
 
     }
 
-    .select-wrap { width: 37.5%; }
+    .select-wrap { 
+
+        width: 25%;
+
+        &--day {
+
+            width: 22%;
+
+        }
+
+        &--month {
+
+            width: 25%;
+
+        }
+
+        &--year {
+
+            width: 28%;
+
+        }
+    }
 
     .consent {
 
