@@ -34,7 +34,7 @@
 
                     $class = 'food';
 
-                } elseif(contains($title, ['wine', 'drinks', 'beer', 'drink'])) {
+                } elseif(contains($title, ['wine', 'drinks', 'beer', 'drink', 'cocktail', 'cocktails'])) {
 
                     $class = 'drink';
 
