@@ -1,8 +1,8 @@
 .cta {
     
     padding: 40px 0;
-	display: block;
-
+    display: block;
+    
     @include mq($mq-tab) {
 
         padding: 40px 0 0 0;
@@ -12,24 +12,31 @@
     .centre-wrap {
         
         display: block;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-
+        display: flex;
+        
+        @include mq($mq-tab){
+            
+            display: block;
+            
+        }
+        
     }
     
     &__region {
         
         @include width(3, 5%);
         float: left;
-		border: 3px solid $primaryColor;
+        border: 3px solid $primaryColor;
         padding: 10px 10px 50px 10px;
         position: relative;
         
         display: block;
     
+        
         img {
+            
             margin-bottom: 20px;
+            
         }
 
         p {
@@ -37,39 +44,32 @@
             margin: 0 auto 15px auto;
             @include font-size(16);
             width: 80%;
-		}
-
-		@include mq($mq-tab, min) {
-
-			&:nth-child(n+4) {
-				margin-top: 5%;
-			}
-
-			&:nth-child(4n+0) {
-
-				margin-right: 5%;
-
-            }
-		}
-
+        }
+        
         @include mq($mq-tab) {
-
-			@include width(2, 5%);
-			
+         
+            @include width(2, 5%);
+            
             margin-bottom: 40px;
-
-            &:nth-child(2n+1) {
-
-				margin-right: 5%;
-    			margin-bottom: 40px;
-
+            
+            &:nth-child(3n+0) {
+                
+                margin-left: 26.25%;
+                margin-right: 0;
+                
             }
-
+                        
         }
         
         @include mq($mq-mob--lrg) {
             
             @include width(1, 0%);
+            
+            &:nth-child(3n+0) {
+                
+                margin-left: 0;
+                
+            }
             
         }
         
@@ -77,8 +77,8 @@
             
             min-height: 500px;
             
-		}
-
+        }
+        
     }
     
     &__button {

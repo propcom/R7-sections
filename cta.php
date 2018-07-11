@@ -22,11 +22,10 @@
 		<? if ( isset( $config['regions'] ) && $config['regions'] ) : ?>
 
 			<? $i = 0;?>
-			<? $num_of_regions = count($config['regions']); ?>
 
 			<? foreach ( $config['regions'] as $region ) : ?>
 
-				<div class="cta__region<?= ($i + 1) % $num_of_regions === 0 ? ' last' : '';?>">
+				<div class="cta__region<?= ($i + 1) % 3 === 0 ? ' last' : '';?>">
 
 					<img src="<?= \Arr::get( $region, 'image' ); ?>" alt="<?= \Arr::get( $region, 'title' ); ?>" class="scale-with-grid">
 
