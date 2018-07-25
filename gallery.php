@@ -18,9 +18,8 @@
             <span>Gallery</span>
         </h1>
         <? if($sub_title): ?>
-            <h2>
-                <span><?= $sub_title; ?></span>
-            </h2>
+            <p><?= $sub_title; ?></p>
+            <br>
         <? endif; ?>
     </div>
 
