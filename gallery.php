@@ -4,7 +4,7 @@
     Shared_Autoloader::forge()->setVersion('v1')->register();
     
     $gallery_id = \Arr::get($config, 'gallery');
-    $sub_title = \Arr::get($config, 'sub_title');
+    $sub_title = \Arr::get($config, 'subtitle');
     $gallery = \Prop\CP\Galleries\Gallery::forge($siteid, $gallery_id);
     $albums = $gallery->get_albums();
 
