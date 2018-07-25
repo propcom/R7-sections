@@ -4,6 +4,7 @@
     Shared_Autoloader::forge()->setVersion('v1')->register();
     
     $gallery_id = \Arr::get($config, 'gallery');
+    $sub_title = \Arr::get($config, 'sub_title');
     $gallery = \Prop\CP\Galleries\Gallery::forge($siteid, $gallery_id);
     $albums = $gallery->get_albums();
 
@@ -16,6 +17,11 @@
         <h1 class="banner">
             <span>Gallery</span>
         </h1>
+        <? if($sub_title): ?>
+            <h2>
+                <span><?= $sub_title; ?></span>
+            </h2>
+        <? endif; ?>
     </div>
 
     <? $a = 0;?>
