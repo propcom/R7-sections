@@ -7,7 +7,7 @@ $posts = $instagram->getPosts(\Arr::get( $insta_cfg, 'count', 30 ) );
 
 <div class="instagram">
 
-    <? if ( !empty($posts) ) : ?>
+    <? if ( !empty($posts) && !array_key_exists('message', $posts)) : ?>
 
         <div class="instagram__slider">
             <div class="inner-slider">
