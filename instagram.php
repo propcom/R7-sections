@@ -13,7 +13,6 @@ $posts = $instagram->getPosts();
             <div class="inner-slider">
                 <? $i = 0; ?>
                 <? foreach ( $posts as $photo ) : ?>
-
 					<div class="instagram__block instagram__large">
 
 						<a href="<?= $social['instagram']; ?>" target="_blank" title="<?= $sitename; ?>" class="instagram__link">
