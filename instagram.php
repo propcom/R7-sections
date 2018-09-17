@@ -1,7 +1,7 @@
 <?php
 
 $instagram = new Instagram\InstagramFeed(\Arr::get( $insta_cfg, 'user_id' ));
-$posts = $instagram->getPosts(\Arr::get( $insta_cfg, 'count', 30 ) );
+$posts = $instagram->getPosts();
 
 ?>
 
@@ -14,57 +14,30 @@ $posts = $instagram->getPosts(\Arr::get( $insta_cfg, 'count', 30 ) );
                 <? $i = 0; ?>
                 <? foreach ( $posts as $photo ) : ?>
 
-                <? if ( $i % 5 === 0 ) : ?>
+					<div class="instagram__block instagram__large">
 
-                <? if ( $i != 0 ) : ?>
+						<a href="<?= $social['instagram']; ?>" target="_blank" title="<?= $sitename; ?>" class="instagram__link">
 
-            </div>
+							<img src="<?= $photo['src']; ?>" zRS-src="<?= $photo['src']; ?>" alt="<?= $sitename; ?>">
+							<span class="instagram__link--content">
+								<span class="instagram__link--content--inner">
+									<p>
+										instagram<br/>
+										<?= \Arr::get( $config, 'title', '#youngs_r7' ); ?>
+									</p>
+									<p class="follow">Follow</p>
+								</span>
+							</span>
+						</a>
 
-            <? endif; ?>
+					</div>
 
-            <div class="instagram__block instagram__large">
+					<? $i++ ?>
 
-                <? endif; ?>
-
-                <? if ( $i % 5 === 0 ) {
-                    $src = $photo->images->standard_resolution;
-                } else {
-                    $src = $photo->images->low_resolution;
-                } ?>
-
-                <? if ( $i === 7 || $i === 19 ) : ?>
-
-                    <a href="<?= $social['instagram']; ?>" target="_blank" title="<?= $sitename; ?>" class="instagram__link">
-
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
-                            <span class="instagram__link--content">
-                                <span class="instagram__link--content--inner">
-                                    <p>
-                                        instagram<br/>
-                                        <?= \Arr::get( $config, 'title', '#youngs_r7' ); ?>
-                                    </p>
-                                    <p class="follow">Follow</p>
-                                </span>
-                            </span>
-                    </a>
-
-                <? else : ?>
-
-                    <a href="<?= $photo->link; ?>" target="_blank" title="<?= $photo->caption ? $photo->caption->text : '-' ?>">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" zRS-src="<?= $src->url; ?>" alt="<?= $sitename; ?>" height="<?= $src->height; ?>" width="<?= $src->width; ?>">
-                    </a>
-
-                <? endif; ?>
-                <? if ( $i % 5 === 0 ) : ?>
+				<? endforeach; ?>
 
             </div>
-            <div class="instagram__block instagram__small">
 
-                <? endif; ?>
-
-                <? $i ++; ?>
-                <? endforeach; ?>
-            </div>
         </div>
 
     <? endif; ?>
