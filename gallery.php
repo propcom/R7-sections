@@ -23,70 +23,65 @@
         <? endif; ?>
     </div>
 
-    <? $a = 0;?>
+    <? $images = array(); ?>
     
     <? foreach ($albums as $album) : ?>
 
-        <div class="js-gallery">
+        <? $image_set = $album->images();?>
 
-            <? $images = $album->images();?>
-            
-            <? $i = 1; ?>
-            
-            <? foreach($images as $index => $image) :?>
+        <? foreach($image_set as $image): ?>
 
-                <? if(($i == 1) || ($i == 7)): ?>
-                    <div class="gallery__section">
-                <? endif; ?>
+            <? array_push($images, $image); ?>
+        
+        <? endforeach; ?>
 
-                <div class="js-gallery-img  gallery__img--bg  gallery__img<?= $i == 5 ? ' gallery__img--large  gallery__img--large--right' : ''; ?> <?= $i == 6 ? ' gallery__img--large  gallery__img--large--left' : '';?>" data-slide_index="<?= $index ?>">
-                    <span class="gallery__img--bg__img" style="background-image: url(<?= $image->get_src('medium');?>);"></span>
+    <? endforeach; ?>
+
+    <div class="js-gallery">
+
+        <? $i = 1; ?>
+
+        <? foreach($images as $index => $image): ?>
+
+            <? if(($i == 1) || ($i == 7)): ?>
+                <div class="gallery__section">
+            <? endif; ?>
+
+            <div class="js-gallery-img  gallery__img--bg  gallery__img<?= $i == 5 ? ' gallery__img--large  gallery__img--large--right' : ''; ?> <?= $i == 6 ? ' gallery__img--large  gallery__img--large--left' : '';?>" data-slide_index="<?= $index ?>">
+                <span class="gallery__img--bg__img" style="background-image: url(<?= $image->get_src('medium');?>);"></span>
+            </div>
+
+            <? if(($i == 4) || ($i == 10) || ($index == count($images)-1)): ?>
                 </div>
-
-                <? if(($i == 4) || ($i == 10) || ($index == count($images)-1)): ?>
-                    </div>
-                <? endif; ?>
-           
+            <? endif; ?>
+            
             <? $i++;?>
 
             <? if ($i == 11) : $i = 1; endif ?>
 
-            <? endforeach;?>
+        <? endforeach;?>
 
-        </div>
-
-        <? $a++;?>
-
-    <? endforeach;?>
+    </div>
         
     <div class="gallery__full">
-    
-        <? foreach($albums as $album) :?>
 
-            <div class="gallery__slider">
+        <div class="gallery__slider">
+            
+            <div class="inner-slider">
                 
-                <div class="inner-slider">
-                   
-                    <? $images = $album->images();?>
+                <? foreach($images as $image) :?>
                     
-                    <? foreach($images as $image) :?>
-                        
-                        <img zRS-src="<?= $image->get_src('x-large');?>" alt="<?= $sitename;?>">
+                    <img zRS-src="<?= $image->get_src('x-large');?>" alt="<?= $sitename;?>">
 
-                    <? endforeach;?>            
+                <? endforeach;?>            
 
-                </div>
+            </div>
 
-                <a href="javascript:void(0);" class="gallery__nav prev">l</a>
-                <a href="javascript:void(0);" class="gallery__nav next">r</a>
-                
-            </div> 
-
-        <? endforeach;?>
+            <a href="javascript:void(0);" class="gallery__nav prev">l</a>
+            <a href="javascript:void(0);" class="gallery__nav next">r</a>
+            
+        </div> 
 
     </div>
     
 </section>
-    
-
-   
