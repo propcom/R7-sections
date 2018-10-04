@@ -21,10 +21,8 @@ $posts = $instagram->getPosts();
 							<span class="instagram__link--content">
 								<span class="instagram__link--content--inner">
 									<p>
-										instagram<br/>
 										<?= \Arr::get( $config, 'title', '#youngs_r7' ); ?>
 									</p>
-									<p class="follow">Follow</p>
 								</span>
 							</span>
 						</a>

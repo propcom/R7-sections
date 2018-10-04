@@ -56,9 +56,9 @@
 		&--content {
 
 			position: absolute;
-			top: 0px;
+			bottom: 0px;
 			left: 0px;
-			height: 100%;
+			height: 65px;
 			width: 100%;
 			text-align: center;
 			background: transparentize($white, 0.5);
@@ -73,13 +73,14 @@
 				top: 50%;
 				@include transform(translateY(-50%));
 
+
 			}
 
 			color: $primaryFontColor;
 
 			p {
 
-				margin-bottom: 20px;
+				margin-bottom: 0px;
 
 				&.follow {
 
@@ -141,6 +142,8 @@
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
+
+			object-fit: cover;
 
 		}
 
