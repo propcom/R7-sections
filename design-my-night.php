@@ -12,7 +12,7 @@
 
                     <h3 class="book__heading"><?= Arr::get($config, 'title');?></h3>
 
-                    <script src="http://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
+                    <script src="https://partners.designmynight.com/pf/js?venue_id=<?= Arr::get($config, 'restaurant-id');?>"></script>
 
                     <? if (Arr::get($config, 'tracking-id')): ?>
                         <script>
