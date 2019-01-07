@@ -6,6 +6,21 @@ $multiFormName = 'signup-form';
 require '/var/www/shared/formincludes/signupFormHeader.php';
 $fh = $multiForms[$multiFormName];
 
+/* SES */
+
+if (Arr::get($config, 'usesSES', false)):
+    $usesSES = true;
+    $usesRecaptcha = false;
+    $swiftConfs = Arr::get($config, 'ses.swiftConfs', []);
+endif;
+
+if (Arr::get($config, 'usesRecaptcha', false)):
+    $siteSecret = Arr::get($config, 'ses.siteSecret', '');
+    $siteKey = Arr::get($config, 'ses.siteKey', '');
+    $usesRecaptcha = true;
+endif;
+
+
 /* Step 1b: Set site id */
 
 $siteId = $siteid;
@@ -39,7 +54,7 @@ $sendEmail = Arr::get($config, 'sendEmail', false);
 
 $email->setSubject($sitename);
 
-$email->setFromEmail($site_email); // Email is sent 'from' this address
+$email->setFromEmail( Arr::get($config, 'setFromEmail', $site_email) ); // Email is sent 'from' this address
 $email->setFromName('Signup from '.$sitename); // "Friendly" name emails are sent from (usually "<pubname> Website")
 
 $email->addRecipient($site_email);
@@ -128,7 +143,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
 
                     <? endif; ?>
 
-                    <form action="" method="post" enctype="multipart/form-data" id="<?= $multiFormName; ?>" class="clearfix<?= $fh->showErrorText ? '  form-error' : ''?>">
+                    <form action="#<?= $multiFormName; ?>-wrapper" method="post" enctype="multipart/form-data" id="<?= $multiFormName; ?>" class="clearfix<?= $fh->showErrorText ? '  form-error' : ''?>">
                         <div class="clearfix">
                             <div class="field-wrap<?php if ($fh->fields['forename']->isError) { ?> error<? } ?>">
                                 <label for="<?= $multiFormName ?>-forename">Name*</label>
@@ -177,7 +192,7 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
 
                         <div class="clearfix">
                             <div class="consent">
-                                <div class="mb15 field-wrap<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
+                                <div class="field-wrap<?php if (@$fh->fields['marketing-consent']->isError) { ?> error<? } ?>">
                         			<input type="checkbox" required name="marketing-consent" id="<?=$multiFormName?>-marketing-consent"
                         				value=""<?php echo @$fh->fields['marketing-consent']->checked?'checked="checked" ':''?>
                         				class="checkbox js-terms" required/>
@@ -185,6 +200,14 @@ require '/var/www/shared/formincludes/signupFormFooter.php';
                         		</div>
                             </div>
                         </div>
+
+                        <? if( Arr::get($config, 'usesRecaptcha', false) ): ?>
+                            <div class="recaptcha-wrapper  mb15">
+                                <div class="g-recaptcha  js-recaptcha"
+                                    data-sitekey="<?= Arr::get($config, 'ses.siteKey', ''); ?>"
+                                    data-callback="recaptchaCallbackSignupForm"></div>
+                            </div>
+                        <? endif; ?>
 
                         <div class="clearfix">
                             <div style="display:none !important;">

@@ -133,7 +133,7 @@
 
     }
 
-    .select-wrap { 
+    .select-wrap {
 
         width: 25%;
 
@@ -161,7 +161,7 @@
         text-align: center;
         font-size: 0;
         margin-top: 50px;
-        margin-bottom: 35px;
+        margin-bottom: 25px;
 
         @include mq(950px) {
             margin-top: 30px;

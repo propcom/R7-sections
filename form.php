@@ -6,6 +6,21 @@ $multiFormName = \Arr::get($config, 'name', 'generic').'-form';
 require '/var/www/shared/formincludes/signupFormHeader.php';
 $fh = $multiForms[$multiFormName];
 
+/* SES */
+
+if (Arr::get($config, 'usesSES', false)):
+    $usesSES = true;
+    $usesRecaptcha = false;
+    $swiftConfs = Arr::get($config, 'ses.swiftConfs', []);
+endif;
+
+if (Arr::get($config, 'usesRecaptcha', false)):
+    $siteSecret = Arr::get($config, 'ses.siteSecret', '');
+    $siteKey = Arr::get($config, 'ses.siteKey', '');
+    $usesRecaptcha = true;
+    $recaptchaCallbackName = 'recaptchaCallback' . str_replace('-', '', Arr::get( $config, 'name', 'generic' )) . 'Form';
+endif;
+
 /* Step 1b: Set site id */
 
 $siteId = $siteid;
@@ -39,7 +54,7 @@ $sendEmail = Arr::get($config, 'sendEmail', false);
 
 $email->setSubject($sitename);
 
-$email->setFromEmail($site_email); // Email is sent 'from' this address
+$email->setFromEmail( Arr::get($config, 'setFromEmail', $site_email) ); // Email is sent 'from' this address
 $email->setFromName(\Arr::get($config, 'title').' enquiry from '.$sitename); // "Friendly" name emails are sent from (usually "<pubname> Website")
 
 $email->addRecipient($site_email);
@@ -219,6 +234,14 @@ if ($fh->showSuccessText && $confirmation) {
                             <label for="<?=$multiFormName?>-marketing-consent">Sign me up for offers, news and promotions, mainly via email</label>
                         </div>
                     </div>
+
+                    <? if( Arr::get($config, 'usesRecaptcha', false) ): ?>
+                        <div class="recaptcha-wrapper  mb15">
+                            <div class="g-recaptcha  js-recaptcha"
+                                data-sitekey="<?= Arr::get($config, 'ses.siteKey', ''); ?>"
+                                data-callback="<?= $recaptchaCallbackName ?>"></div>
+                        </div>
+                    <? endif; ?>
 
                     <div style="display:none !important;">
                         <textarea name="textboxfilter" rows="" cols=""></textarea>
