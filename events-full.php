@@ -104,6 +104,11 @@
 				<p>We currently don't have any events planned for <span class="highlight"><?= date( 'F Y', strtotime( $event_month ) ); ?></span>, please check back soon for updates.</p>
 
 			<? endif; ?>
+
+			<p class="events__disclaimer">
+                Please be advised that Young’s only sells tickets for events through our official partner DesignMyNight, using their online event ticketing software Tonic – any tickets presented from other event ticketing providers will not be accepted.
+            </p>
+            
 		</div>
 
 	</div>
