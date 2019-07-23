@@ -3,7 +3,7 @@
 	<div class="centre-wrap centre-wrap--centred">
 
 		<?
-			if ( isset( $promo ) && $promo ) {
+			if ( isset( $promo ) && !empty($promo->r7_header) ) {
 
 				$new = [
 					'title' 	=> $promo->r7_header,
