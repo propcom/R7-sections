@@ -21,9 +21,9 @@
 	&__wrapper {
 
 		position: relative;
-	    max-width: 360px;
+	    max-width: 270px;
 	    margin: 0 auto;
-	    padding: 0;			
+	    padding: 0;
 
 	    border: 0;
 	    
@@ -177,3 +177,5 @@
 	}
 
 }
+
+#dmn-partner-widget #dmn-widget-inner .stage .scroll-height { height: 100% !important; }
