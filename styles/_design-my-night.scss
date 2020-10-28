@@ -12,6 +12,7 @@
 		height: 100%;
 	    padding: 50px 0;
 
+		-webkit-overflow-scrolling: touch;
 		-webkit-backdrop-filter: blur(15px);
 
 		@include rgba('background-color', rgba($black, 0.9), $black);
